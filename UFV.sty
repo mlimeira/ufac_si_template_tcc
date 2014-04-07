@@ -1,4 +1,4 @@
-%% 
+%%
 %% Customizações do abnTeX2 (http://abnTeX2.googlecode.com) para a Universidade Federal de Viçosa
 %%
 %% This work may be distributed and/or modified under the
@@ -19,6 +19,29 @@
 % ---
 % INICIO DAS CUSTOMIZACOES PARA A UNIVERSIDADE FEDERAL DE VIÇOSA
 % ---
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{UFV}[2014/04/07 v0.1 AbnTeX2-UFV]
+
+% Ajusta as margens
+\setlrmarginsandblock{3cm}{2cm}{*}
+\setulmarginsandblock{3cm}{2cm}{*}
+\checkandfixthelayout
+
+% Ajusta identação do parágrafo
+\setlength{\parindent}{1.3cm}
+
+% Ajusta o espaçamento entre um parágrafo e outro
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% Altera o cabeçalho e rodapé das páginas
+\makepagestyle{ufvstyle}
+%pagina par
+\makeevenhead{ufvstyle}{}{}{\footnotesize\thepage}
+\makeoddfoot{ufvstyle}{}{}{}
+
+%página ímpar
+\makeoddhead{ufvstyle}{}{}{\footnotesize\thepage}
+\makeevenfoot{ufvstyle}{}{}{}
 
 % alterando a capa
 \renewcommand{\imprimircapa}{%

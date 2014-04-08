@@ -3,52 +3,38 @@
 %% da Universidade Federal de Viçosa - Campus de Rio Paranaíba
 %% Autor: Rodrigo Smarzaro (smarzaro@ufv.br)
 %% Última versão Março/2014
-
-% Arquivo em formato UTF-8
-% Compilar com pdftex
-% Precisa do arquivo ufv.cls
+%% Arquivo em formato UTF-8
+%% Compilar com pdftex
+% %Precisa do arquivo UFV.sty
 %%==============================================================
+
 \documentclass[
 	% -- opções da classe memoir --
-	12pt,				% tamanho da fonte
-	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
-	oneside,			% para impressão só no anverso. Oposto a twoside
-	a4paper,			% tamanho do papel.
-    %chapter=TITLE,     % Títulos em maiúsculas
+	12pt,				    % tamanho da fonte
+	openright,			    % capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			    % para impressão só no anverso. Oposto a twoside
+	a4paper,			    % tamanho do papel.
+    % -- opções do pacote abntex2 --
+    % chapter=TITLE,         % Títulos em maiúsculas
+    sumario=tradicional,    % Sumário padrão memoir (mais bonito "imo")
     % -- opções do pacote babel --
-	english,			% idioma adicional para hifenização
-	brazil,				% o último idioma é o principal do documento
-	]{ufv}              % Personaliza a capa. Precisa do arquivo ufv.cls para funcionar.
-
-%% Estilo de cabeçalho (somente número da página alinhada a direita)
-\makepagestyle{ufvstyle}
-  %pagina par
-  \makeevenhead{ufvstyle}{}{}{\footnotesize\thepage}
-  %página ímpar
-  \makeoddhead{ufvstyle}{}{}{\footnotesize\thepage}
-  %% rodapé
-  \makeevenfoot{ufvstyle}{}{}{}
-  \makeoddfoot{ufvstyle}{}{}{}
+	english,			    % idioma adicional para hifenização
+	brazil,				    % o último idioma é o principal do documento
+	]{abntex2}              % Personaliza a capa. Precisa do arquivo ufv.cls para funcionar.
 
 
-% ---
-% PACOTES
-% ---
 
-% ---
 % Pacotes fundamentais
-% ---
+\usepackage{abntex2-UFV}        % Personalização para a Universidade Federal de Viçosa
 \usepackage{lmodern}			% Usa a fonte Latin Modern			
 \usepackage[T1]{fontenc}		% Selecao de codigos de fonte de saída
 \usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{booktabs}           % \toprule, \midrule e \bottomrule para tabelas
+% Sistema autor-data com títulos nas referências em negrito
+\usepackage[alf,abnt-emphasize=bf]{abntex2cite}	
 
-% ---
-% Pacotes de citações
-% ---
-\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
 
 % ---
 % CONFIGURAÇÕES DE PACOTES
@@ -59,13 +45,21 @@
 \autor{Rodrigo Smarzaro}
 \local{Rio Paranaíba}
 \data{2014}
-\orientador{Beltrano da Silva}
-\coorientador{Fulano de Tal}
+\orientador{Nome do Orientador}
+\coorientador{Nome do Coorientador}
 \instituicao{Universidade Federal de Viçosa}
+
+\campus{\emph{Campus} de Rio Paranaíba}      % pacote abntex2-UFV
+\curso{Sistemas de Informação}               % pacote abntex2-UFV 
+%\orientadorsiglainst{UFV}                   % pacote abntex2-UFV  
+\membrobancaA{Membro da Banca A}             % pacote abntex2-UFV
+\membrobancaB{Membro da Banca B}             % pacote abntex2-UFV
+\databanca{\today}                           % pacote abntex2-UFV 
 \tipotrabalho{TCC (Graduação)}
+
 % O preambulo deve conter o tipo do trabalho, o objetivo,
 % o nome da instituição e a área de concentração
-\preambulo{Relatório final, apresentado à Universidade Federal de Viçosa, como parte das exigências para a a aprovação na disciplina Trabalho de Conclusão de Curso I}
+\preambulo{Monografia apresentada à Universidade Federal de Viçosa, como parte das exigências para a a aprovação na disciplina Trabalho de Conclusão de Curso I}
 % ---
 
 % ---
@@ -91,13 +85,6 @@
 \makeatother
 % ---
 
-% O tamanho do parágrafo é dado por:
-\setlength{\parindent}{1.3cm}
-
-% Controle do espaçamento entre um parágrafo e outro:
-\setlength{\parskip}{0.2cm}  % tente também \onelineskip
-
-
 \begin{document}
 % Retira espaço extra obsoleto entre as frases.
 \frenchspacing
@@ -118,6 +105,7 @@
 %% Se for necessária folha de aprovação descomente a linha abaixo
 %% e edite o arquivo folhaaprovacao.tex
 %\input{folhaaprovacao.tex}
+\imprimirfolhadeaprovacao
 
 % Dedicatória
 \begin{dedicatoria}
@@ -213,9 +201,7 @@
 % ELEMENTOS TEXTUAIS
 % ----------------------------------------------------------
 \textual
-% Utilizar o estilo de cabeçalho com páginas alinhadas a direita
-% Definida no preâmbulo do documento
-\pagestyle{ufvstyle}
+
 
 %Modifique a estrutura dos capítulos e seções de acordo com a necessidade do seu trabalho
 \chapter{Introdução}\label{sec:introducao}
@@ -230,7 +216,7 @@ Alguns links interessantes para se trabalhar com a classe abn\TeX\ e \LaTeX\ em 
   \item Gerenciador de arquivos \texttt{.bib}: \url{http://jabref.sourceforge.net/}
   \item Gerenciador de artigos: \url{http://www.mendeley.com/}
   \item Exemplo de Tabela: Veja \autoref{tab:cronograma}
-  
+
 \end{alineas}
 \chapter{Objetivos}\label{sec:objetivos}
 

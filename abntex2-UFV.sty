@@ -20,7 +20,7 @@
 % INICIO DAS CUSTOMIZACOES PARA A UNIVERSIDADE FEDERAL DE VIÇOSA
 % ---
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
-\ProvidesPackage{UFV}[2014/04/07 v0.1 AbnTeX2-UFV]
+\ProvidesPackage{abntex2-UFV}[2014/04/07 v0.1 AbnTeX2-UFV]
 
 % Ajusta as margens
 \setlrmarginsandblock{3cm}{2cm}{*}
@@ -33,25 +33,22 @@
 % Ajusta o espaçamento entre um parágrafo e outro
 \setlength{\parskip}{0.2cm}  % tente também \onelineskip
 
-% Altera o cabeçalho e rodapé das páginas
-\makepagestyle{ufvstyle}
-%pagina par
-\makeevenhead{ufvstyle}{}{}{\footnotesize\thepage}
-\makeoddfoot{ufvstyle}{}{}{}
+\providecommand{\imprimircampus}{}
+\newcommand{\campus}[1]{\renewcommand{\imprimircampus}{#1}}
 
-%página ímpar
-\makeoddhead{ufvstyle}{}{}{\footnotesize\thepage}
-\makeevenfoot{ufvstyle}{}{}{}
+\providecommand{\imprimircurso}{}
+\newcommand{\curso}[1]{\renewcommand{\imprimircurso}{#1}}
+
 
 % alterando a capa
 \renewcommand{\imprimircapa}{%
   \begin{capa}%
     \center
-    {\large UNIVERSIDADE FEDERAL DE VI\c{C}OSA}
+    {\large \MakeUppercase{\imprimirinstituicao}}
     \par
-    {\large \emph{CAMPUS} DE RIO PARANA\'{I}BA}
-%    \par
-%    {\large CURSO DE SISTEMAS DE INFORMAÇÃO}
+    {\large \MakeUppercase{\imprimircampus}}
+    \par
+    {\large \MakeUppercase{\imprimircurso}}
     \vspace*{3cm}
 
     {\large \MakeUppercase{\imprimirautor}}
@@ -115,6 +112,62 @@
 \end{center}
 }
 
+\makeatother
+
+
+\providecommand{\imprimirorientadorsiglainst}{}
+\renewcommand{\orientador}[2][UFV-CRP]{\renewcommand{\imprimirorientador}{#2}\renewcommand{\imprimirorientadorsiglainst}{#1}}
+
+\providecommand{\imprimirmembrobancaA}{}
+\providecommand{\imprimirmembrobancaAsiglainst}{}
+\newcommand{\membrobancaA}[2][UFV-CRP]{\renewcommand{\imprimirmembrobancaA}{#2}\renewcommand{\imprimirmembrobancaAsiglainst}{#1}}
+
+
+\providecommand{\imprimirmembrobancaB}{}
+\providecommand{\imprimirmembrobancaBsiglainst}{}
+\newcommand{\membrobancaB}[2][UFV-CRP]{\renewcommand{\imprimirmembrobancaB}{#2}\renewcommand{\imprimirmembrobancaBsiglainst}{#1}}
+
+\providecommand{\imprimirdatabanca}{}
+\newcommand{\databanca}[1]{\renewcommand{\imprimirdatabanca}{#1}}
+
+
+\makeatletter
+\newcommand{\imprimirfolhadeaprovacao}{
+\begin{folhadeaprovacao}
+
+  \begin{center}
+    {\large\MakeUppercase{\imprimirautor}}
+
+    \vspace*{\fill}\vspace*{\fill}
+    {\bfseries\large\MakeUppercase{\imprimirtitulo}}
+    \vspace*{\fill}
+
+    \hspace{.45\textwidth}
+    \begin{minipage}{.5\textwidth}
+        \imprimirpreambulo
+    \end{minipage}%
+    \vspace*{\fill}
+   \end{center}
+   APROVADA EM: \imprimirdatabanca
+
+   \assinatura{\textbf{\imprimirorientador} \\ Orientador \\ \imprimirorientadorsiglainst}
+
+   \abntex@ifnotempty{\imprimircoorientador}{%
+   \assinatura{\textbf{\imprimirmembrobancaA} \\ \imprimirmembrobancaAsiglainst}
+   }%
+   \abntex@ifnotempty{\imprimirmembrobancaB}{%
+   \assinatura{\textbf{\imprimirmembrobancaB} \\ \imprimirmembrobancaBsiglainst}
+   }%
+   \begin{center}
+    \vspace*{0.5cm}
+    {\large\MakeUppercase{\imprimirlocal}}
+    \par
+    {\large\imprimirdata}
+    \vspace*{1cm}
+  \end{center}
+
+\end{folhadeaprovacao}
+}
 \makeatother
 
 % ---

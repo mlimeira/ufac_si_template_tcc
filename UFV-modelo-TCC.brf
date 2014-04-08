@@ -1,0 +1,11 @@
+\backcite {abntex2classe}{{10}{{{a)}}}{Item.1}}
+\backcite {abntex2cite}{{10}{{{b)}}}{Item.2}}
+\backcite {abntex2cite-alf}{{10}{{{b)}}}{Item.2}}
+\backcite {memoir}{{10}{{{c)}}}{Item.3}}
+\backcite {memoir}{{10}{{{c)}}}{Item.3}}
+\backcite {abntex2classe}{{10}{{{c)}}}{Item.3}}
+\backcite {abntex2classe}{{10}{{{c)}}}{Item.3}}
+\backcite {Dongen2012,LeslieLamport90,FrankMittelbach111,Dongen2012}{{10}{{{d)}}}{Item.4}}
+\backcite {Dongen2012,LeslieLamport90,FrankMittelbach111,Dongen2012}{{10}{{{d)}}}{Item.4}}
+\backcite {Dongen2012,LeslieLamport90,FrankMittelbach111,Dongen2012}{{10}{{{d)}}}{Item.4}}
+\backcite {Dongen2012,LeslieLamport90,FrankMittelbach111,Dongen2012}{{10}{{{d)}}}{Item.4}}

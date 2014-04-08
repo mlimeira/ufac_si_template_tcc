@@ -45,17 +45,15 @@
 \autor{Rodrigo Smarzaro}
 \local{Rio Paranaíba}
 \data{2014}
-\orientador{Nome do Orientador}
-\coorientador{Nome do Coorientador}
+\orientador{Nome do Orientador}    % redefinido no abntex2-UFV para aceitar Instituição (default = UFV-CRP)
+%\coorientador{Nome do Coorientador}
 \instituicao{Universidade Federal de Viçosa}
 
 \campus{\emph{Campus} de Rio Paranaíba}      % pacote abntex2-UFV
-\curso{Sistemas de Informação}               % pacote abntex2-UFV 
-%\orientadorsiglainst{UFV}                   % pacote abntex2-UFV  
-\membrobancaA{Membro da Banca A}             % pacote abntex2-UFV
-\membrobancaB{Membro da Banca B}             % pacote abntex2-UFV
-\databanca{\today}                           % pacote abntex2-UFV 
-\tipotrabalho{TCC (Graduação)}
+%\curso{Sistemas de Informação}               % pacote abntex2-UFV
+\membrobancaA{Membro da Banca A}             % pacote abntex2-UFV default = UFV-CRP
+\membrobancaB[UFMG]{Membro da Banca B}       % pacote abntex2-UFV default = UFV-CRP
+\databanca{\today}                           % pacote abntex2-UFV
 
 % O preambulo deve conter o tipo do trabalho, o objetivo,
 % o nome da instituição e a área de concentração
@@ -101,10 +99,7 @@
 \imprimirfolhaderosto
 % ---
 
-%% Inserir folha de aprovação
-%% Se for necessária folha de aprovação descomente a linha abaixo
-%% e edite o arquivo folhaaprovacao.tex
-%\input{folhaaprovacao.tex}
+% Inserir folha de aprovação
 \imprimirfolhadeaprovacao
 
 % Dedicatória

@@ -48,7 +48,9 @@
     \par
     {\large \MakeUppercase{\imprimircampus}}
     \par
-    {\large \MakeUppercase{\imprimircurso}}
+    \abntex@ifnotempty{\imprimircurso}{%
+       {\large \MakeUppercase{\imprimircurso}}
+    }%
     \vspace*{3cm}
 
     {\large \MakeUppercase{\imprimirautor}}
@@ -56,11 +58,10 @@
     \vspace*{\fill}
     {\bfseries\large \MakeUppercase{\imprimirtitulo}}
     \vspace*{\fill}
-
+    \par
     {\large\MakeUppercase{\imprimirlocal}}
     \par
     {\large\imprimirdata}
-
     \vspace*{1cm}
   \end{capa}
 }
@@ -98,17 +99,12 @@
   \end{minipage}%
   \vspace*{\fill}
 }%
-
-
-\vspace*{\fill}
-
-
-{\large\MakeUppercase{\imprimirlocal}}
-
-\par
-
-{\large\imprimirdata}
-\vspace*{1cm}
+    \vspace*{\fill}
+    \par
+    {\large\MakeUppercase{\imprimirlocal}}
+    \par
+    {\large\imprimirdata}
+    \vspace*{1cm}
 \end{center}
 }
 
@@ -117,10 +113,15 @@
 
 \providecommand{\imprimirorientadorsiglainst}{}
 \renewcommand{\orientador}[2][UFV-CRP]{\renewcommand{\imprimirorientador}{#2}\renewcommand{\imprimirorientadorsiglainst}{#1}}
+\renewcommand{\imprimirorientadorRotulo}{\orientadorname}
+
 
 \providecommand{\imprimirmembrobancaA}{}
 \providecommand{\imprimirmembrobancaAsiglainst}{}
-\newcommand{\membrobancaA}[2][UFV-CRP]{\renewcommand{\imprimirmembrobancaA}{#2}\renewcommand{\imprimirmembrobancaAsiglainst}{#1}}
+\newcommand{\membrobancaA}[2][UFV-CRP]{
+   \renewcommand{\imprimirmembrobancaA}{#2}
+   \renewcommand{\imprimirmembrobancaAsiglainst}{#1}
+}
 
 
 \providecommand{\imprimirmembrobancaB}{}
@@ -152,20 +153,20 @@
 
    \assinatura{\textbf{\imprimirorientador} \\ Orientador \\ \imprimirorientadorsiglainst}
 
-   \abntex@ifnotempty{\imprimircoorientador}{%
+   \abntex@ifnotempty{\imprimirmembrobancaA}{%
    \assinatura{\textbf{\imprimirmembrobancaA} \\ \imprimirmembrobancaAsiglainst}
    }%
    \abntex@ifnotempty{\imprimirmembrobancaB}{%
    \assinatura{\textbf{\imprimirmembrobancaB} \\ \imprimirmembrobancaBsiglainst}
    }%
    \begin{center}
-    \vspace*{0.5cm}
+    \vspace*{\fill}
+    \par
     {\large\MakeUppercase{\imprimirlocal}}
     \par
     {\large\imprimirdata}
     \vspace*{1cm}
   \end{center}
-
 \end{folhadeaprovacao}
 }
 \makeatother

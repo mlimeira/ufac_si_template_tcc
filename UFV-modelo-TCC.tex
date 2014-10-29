@@ -2,10 +2,10 @@
 %% Modelo de TCC para o curso de Sistemas de Informação
 %% da Universidade Federal de Viçosa - Campus de Rio Paranaíba
 %% Autor: Rodrigo Smarzaro (smarzaro@ufv.br)
-%% Última versão Março/2014
+%% Última versão Outubro/2014
 %% Arquivo em formato UTF-8
 %% Compilar com pdftex
-% %Precisa do arquivo UFV.sty
+%% Precisa do arquivo abntex2-UFV.sty
 %%==============================================================
 
 \documentclass[
@@ -15,12 +15,12 @@
 	oneside,			    % para impressão só no anverso. Oposto a twoside
 	a4paper,			    % tamanho do papel.
     % -- opções do pacote abntex2 --
-    % chapter=TITLE,         % Títulos em maiúsculas
-    sumario=tradicional,    % Sumário padrão memoir (mais bonito "imo")
+    % chapter=TITLE,        % Títulos em maiúsculas
+    sumario=tradicional,    % Sumário padrão memoir 
     % -- opções do pacote babel --
 	english,			    % idioma adicional para hifenização
-	brazil,				    % o último idioma é o principal do documento
-	]{abntex2}              % Personaliza a capa. Precisa do arquivo ufv.cls para funcionar.
+	brazil,				    % idioma principal do documento
+	]{abntex2}              
 
 
 
@@ -65,7 +65,7 @@
 
 % informações para o arquivo pdf de saída
 % Interessante alterar a cor dos links para preto(black)
-% para imprimir
+% na versão final para imprimir
 \makeatletter
 \hypersetup{
         % metadados
@@ -74,7 +74,7 @@
     	pdfsubject={\imprimirpreambulo},
 	    pdfcreator={LaTeX with abnTeX2},
 		colorlinks=true,   % false: links em frame; true: links coloridos
-    	linkcolor=black,    % cor dos links no documento
+    	linkcolor=black,   % cor dos links no documento
     	citecolor=blue,    % cor dos links para a bibliografia
     	filecolor=magenta, % cor dos links para arquivos
 		urlcolor=blue,     % cor dos links para sites
@@ -114,7 +114,7 @@
 
 % Agradecimentos
 \begin{agradecimentos}
-
+%Insira o texto de agradecimentos aqui
 \end{agradecimentos}
  ---
 
@@ -211,9 +211,10 @@ Alguns links interessantes para se trabalhar com a classe abn\TeX\ e \LaTeX\ em 
   \item Gerenciador de arquivos \texttt{.bib}: \url{http://jabref.sourceforge.net/}
   \item Gerenciador de artigos: \url{http://www.mendeley.com/}
   \item Exemplo de Tabela: Veja \autoref{tab:cronograma}
+  \item Manual de Normas da UFV: \citeonline{manualUFV}
 
 \end{alineas}
-\chapter{Objetivos}\label{sec:objetivos}
+\chapter{Objetivos}\label{sec:objetivos}abntex2cite
 
 \section{Objetivos Específicos}\label{sec:ObjetivosEspec}
 

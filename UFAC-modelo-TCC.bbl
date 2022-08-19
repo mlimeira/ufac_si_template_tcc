@@ -1,0 +1,99 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.6 }
+
+\bibitem[abnTeX2 e Araujo 2013]{abntex2classe}
+\abntrefinfo{abnTeX2 e Araujo}{ABNTEX2; ARAUJO}{2013a}
+{ABNTEX2; ARAUJO, L.~C. \textbf{A classe abntex2: Modelo canônico de trabalhos
+  acadêmicos brasileiros compatível com as normas ABNT NBR 14724:2011, ABNT
+  NBR 6024:2012 e outras}.
+[S.l.], 2013. Dispon{\'\i}vel em: \url{http://abntex2.googlecode.com/}.}
+
+\bibitem[abnTeX2 e Araujo 2013]{abntex2cite}
+\abntrefinfo{abnTeX2 e Araujo}{ABNTEX2; ARAUJO}{2013b}
+{ABNTEX2; ARAUJO, L.~C. \textbf{O pacote abntex2cite: Estilos bibliográficos
+  compatíveis com a ABNT NBR 6023}.
+[S.l.], 2013. Dispon{\'\i}vel em: \url{http://abntex2.googlecode.com/}.}
+
+\bibitem[abnTeX2 e Araujo 2013]{abntex2cite-alf}
+\abntrefinfo{abnTeX2 e Araujo}{ABNTEX2; ARAUJO}{2013c}
+{ABNTEX2; ARAUJO, L.~C. \textbf{O pacote abntex2cite: tópicos específicos da
+  ABNT NBR 10520:2002 e o estilo bibliográfico alfabético (sistema
+  autor-data)}.
+[S.l.], 2013. Dispon{\'\i}vel em: \url{http://abntex2.googlecode.com/}.}
+
+\bibitem[Aluno 2019]{tese2019}
+\abntrefinfo{Aluno}{ALUNO}{2019}
+{ALUNO, O.
+\textbf{Minha tese de doutorado}.
+Tese (Doutorado) --- Universidade Federal do Acre, Rio Branco, AC, Brasil,
+  Julho 2019.}
+
+\bibitem[Associa{\c c}\~ao Brasileira de Normas T\'ecnicas 2003]{NBR6028:2003}
+\abntrefinfo{ABNT}{ABNT}{2003}
+{ASSOCIA{\c C}\~AO BRASILEIRA DE NORMAS T\'ECNICAS. \textbf{{NBR} 6028}: Resumo
+  - apresenta{\c c}{\~a}o.
+Rio de Janeiro, 2003. 2~p.}
+
+\bibitem[Associa{\c c}\~ao Brasileira de Normas T\'ecnicas 2011]{NBR14724:2011}
+\abntrefinfo{ABNT}{ABNT}{2011}
+{ASSOCIA{\c C}\~AO BRASILEIRA DE NORMAS T\'ECNICAS. \textbf{{NBR} 14724}:
+  Informa{\c c}\~ao e documenta{\c c}\~ao --- trabalhos acad\^emicos ---
+  apresenta{\c c}\~ao.
+Rio de Janeiro, 2011. 6~p.}
+
+\bibitem[Autor 2019]{confinter2019}
+\abntrefinfo{Autor}{AUTOR}{2019a}
+{AUTOR, P. Exemplo de trabalho em confer\^encia internacional. In:
+  \textbf{{FIFA} Annual Conference}. Los Angeles, CA, EUA: [s.n.], 2019. p.
+  95--105.}
+
+\bibitem[Autor 2019]{confnac2019}
+\abntrefinfo{Autor}{AUTOR}{2019b}
+{AUTOR, P. Exemplo de trabalho em confer\^encia nacional. In:
+  \textbf{Congresso Brasileiro de Futebol}. Rio de Janeiro, RJ, Brasil: [s.n.],
+  2019. p. 95--105.}
+
+\bibitem[Dongen 2012]{Dongen2012}
+\abntrefinfo{Dongen}{DONGEN}{2012}
+{DONGEN, M. R.~C. van. \textbf{LaTeX and Friends}. [S.l.]: Springer, 2012.
+ISBN 978-36-4223-816-1.}
+
+\bibitem[Lamport 1994]{LeslieLamport90}
+\abntrefinfo{Lamport}{LAMPORT}{1994}
+{LAMPORT, L. \textbf{LaTeX: A Document Preparation System}. [S.l.]: TBS, 1994.
+ISBN 81-7758-414-6.}
+
+\bibitem[Mittelbach et al. 2004]{FrankMittelbach111}
+\abntrefinfo{Mittelbach et al.}{MITTELBACH et al.}{2004}
+{MITTELBACH, F. et al. \textbf{The LaTeX Companion}. [S.l.]: Addison-Wesley,
+  2004.
+ISBN 978-02-0136-299-2.}
+
+\bibitem[UFAC 2019]{site2019}
+\abntrefinfo{UFAC}{UFAC}{2019}
+{UFAC. \textbf{Trabalho de Conclusão de Curso}. 2019.
+Dispon\'{i}vel em \url{http://www.csi.ufac.br/monografia.pdf}.}
+
+\bibitem[Wazlawick 2009]{wazlawick2009}
+\abntrefinfo{Wazlawick}{WAZLAWICK}{2009}
+{WAZLAWICK, R.~S. \textbf{Metodologia de Pesquisa em Ciência da Computação}.
+  1a edição. ed. [S.l.]: Elsevier, 2009. ISBN 978-85-35235-22-7.}
+
+\bibitem[Wilson e Madsen 2010]{memoir}
+\abntrefinfo{Wilson e Madsen}{WILSON; MADSEN}{2010}
+{WILSON, P.; MADSEN, L. \textbf{The Memoir Class for Configurable Typesetting -
+  User Guide}.
+Normandy Park, WA, 2010. Dispon{\'\i}vel em:
+  \url{http://mirrors.ctan.org/macros/latex/contrib/memoir/memman.pdf}. Acesso
+  em: 19 dez. 2012.}
+
+\bibitem[Zobel 2014]{zobel2014}
+\abntrefinfo{Zobel}{ZOBEL}{2014}
+{ZOBEL, J. \textbf{Writing for Computer Science}. 3a edição. ed. [S.l.]:
+  Springer, 2014. ISBN 978-14-47166-38-2.}
+
+\end{thebibliography}

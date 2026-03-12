@@ -61,7 +61,10 @@
     numbers=left,
     numberstyle=\tiny,
     frame=single,
-    breaklines=true
+    breaklines=true,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{orange}
 }
 
 % ---
@@ -181,7 +184,7 @@ Segundo \cite{NBR6028:2003}, o resumo é elemento obrigat\'orio, constitu\'ido d
    \vspace{\onelineskip}
 
    \noindent
-   \textbf{Key-words}: .
+   \textbf{Key-words}: Keyword1. Keyword2. Keyword3.
  \end{otherlanguage*}
 \end{resumo}
 
@@ -328,6 +331,8 @@ Parte teórica da monografia: qual é o assunto que dá embasamento para a monog
 
 As referências dos documentos consultados para a elaboração do projeto são um item obrigatório. Normalmente, nelas constam os documentos e quaisquer fontes de informação consultadas no levantamento de literatura \cite{rev2019}. 
 
+\section{Conceitos Fundamentais}
+
 Podem ser elaborados diferentes capítulos para a fundamentação teórica, conforme a necessidade.
 
 Geralmente, recomenda-se que a seção de revisão de literatura em artigos científicos seja composta por 5 a 10 páginas, fundamentando-se em autores, preferencialmente de livros. Referências da internet devem ser utilizadas com cautela, não devendo ultrapassar 30\% das obras citadas.
@@ -353,9 +358,7 @@ Obesidade & > 30 \\
 \end{center}
 \end{table}
 
-\section{Trabalhos Relacionados}\label{sec:TrabRel}
-
-Compare os trabalhos da literatura.
+\section{Tecnologias Utilizadas}
 
 Exemplo de algoritmo:
 \begin{algorithm}
@@ -374,6 +377,10 @@ Exemplo de código:
     model = RandomForestClassifier()
     model.fit(X_train, y_train)
 \end{lstlisting}
+
+\section{Trabalhos Relacionados}\label{sec:TrabRel}
+
+Compare os trabalhos existentes na literatura.
 
 % -------------------------------------------------------------
 % METODOLOGIA
@@ -421,6 +428,8 @@ Etapas do experimento e métricas de avaliação.
 % RESULTADOS
 % -------------------------------------------------------------
 \chapter{Resultados e Discussões}\label{sec:resultados}\thispagestyle{empty}
+
+\section{Resultados Experimentais}
 
 \section{Discussão dos Resultados}
 
@@ -523,7 +532,7 @@ Sugerir trabalhos futuros.
 %% ----------------------------------------------------------
 \begin{anexosenv}
 %
-%% Imprime uma página indicando o início dos anexos
+%% Imprime uma página indicando o início dos anexos (Documentos externos utilizados)
 \partanexos
 %
 \chapter{Primeiro Anexo}

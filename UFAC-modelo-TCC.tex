@@ -50,6 +50,12 @@
 \usepackage{algpseudocode}
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{newfloat}
 %
 % -------------------------------------------------------------
 % CONFIGURACAO DE CODIGO FONTE
@@ -66,6 +72,15 @@
     commentstyle=\color{gray},
     stringstyle=\color{orange}
 }
+
+% -------------------------------------------------------------
+% AMBIENTE QUADRO ABNT
+% -------------------------------------------------------------
+\DeclareFloatingEnvironment[
+    fileext=loq,
+    listname={Lista de quadros},
+    name=Quadro
+]{quadro}
 
 % ---
 % CONFIGURAÇÕES DE PACOTES
@@ -195,6 +210,12 @@ Segundo \cite{NBR6028:2003}, o resumo é elemento obrigat\'orio, constitu\'ido d
 % Lista de ilustrações
 \pdfbookmark[0]{\listfigurename}{lof}
 \listoffigures*
+\cleardoublepage
+% ---
+
+% Lista de quadros
+\pdfbookmark[0]{\listofquadrosname}{loq}
+\listofquadros
 \cleardoublepage
 % ---
 
@@ -430,6 +451,23 @@ Etapas do experimento e métricas de avaliação.
 \chapter{Resultados e Discussões}\label{sec:resultados}\thispagestyle{empty}
 
 \section{Resultados Experimentais}
+
+\begin{quadro}[H]
+\centering
+\caption{Etapas do processo de mineração de dados}
+\begin{tabular}{|c|l|}
+\hline
+Etapa & Descrição \\
+\hline
+Seleção & Escolha dos dados relevantes \\
+Pré-processamento & Limpeza e tratamento \\
+Transformação & Preparação para mineração \\
+Mineração & Aplicação de algoritmos \\
+\hline
+\end{tabular}
+\fonte{Autor (2026)}
+\end{quadro}
+
 
 \section{Discussão dos Resultados}
 

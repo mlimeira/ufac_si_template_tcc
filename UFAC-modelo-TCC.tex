@@ -263,14 +263,17 @@ Segundo \cite{NBR6028:2003}, o resumo é elemento obrigat\'orio, constitu\'ido d
 \chapter{Introdução}\label{sec:introducao} \thispagestyle{empty}
 
 Apresentar uma visão geral do assunto que será abordado no trabalho, procurando fazer com que o leitor adquira uma compreensão inicial do que será tratado e fornecendo informações que o levem a perceber sua importância. A introdução deve apresentar o contexto geral do problema: a área de estudo, o cenário atual e a relevância do tema. 
-Recomenda-se que esta seção tenha entre 2 e 5 páginas.
+
+Exemplo de contextualização: Nos últimos anos, o crescimento exponencial da quantidade de dados gerados por sistemas digitais tem impulsionado o desenvolvimento de técnicas de análise de dados e aprendizado de máquina.
+
+Recomenda-se que a introdução tenha entre 2 e 5 páginas.
 
 As figuras devem ser citadas no texto antes de aparecerem, possuir legenda clara e indicar a fonte. Exemplo de Figura: Ver Figura~\ref{fig:exefig}.
 
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.3\linewidth]{figuras/exefig.eps}
-\caption{Logotipo da Universidade Federal do Acre (UFAC).}
+\caption{Brasão da Universidade Federal do Acre (UFAC).}
 \label{fig:exefig}
 \end{figure}
 
@@ -286,14 +289,14 @@ Alguns links interessantes para se trabalhar com a classe abn\TeX\ e \LaTeX\ em 
   \item Editor \LaTeX\ gratuito: \url{http://texstudio.sourceforge.net/}
   \item Gerenciador de arquivos \texttt{.bib}: \url{http://jabref.sourceforge.net/}
   \item Gerenciador de artigos: \url{http://www.mendeley.com/}
-  \item Exemplo de Tabela: Veja \autoref{tab:cronograma}
+  \item Exemplo de Tabela: Veja \autoref{tab:exetab}
 \end{alineas}
 
 \section{Problema da Pesquisa}\label{sec:ProbPesq}
 
 Qual é a grande questão que se busca responder? Qual é o problema que se pretende resolver? 
 
-O problema é a mola propulsora de todo o trabalho de pesquisa. Após definir o tema, levanta-se uma questão a ser respondida por meio de uma hipótese, que será confirmada ou refutada ao longo do trabalho de pesquisa. O problema é criado pelo próprio autor e está relacionado ao tema escolhido. Nesse contexto, o autor formulará um questionamento para delimitar a abrangência de sua pesquisa. Não há regras rígidas para a criação de um problema, mas alguns autores sugerem que ele seja expresso na forma de pergunta. A seção deve apresentar uma pergunta clara que o trabalho busca responder. De 1 a 2 páginas.
+O problema é a mola propulsora de todo o trabalho de pesquisa. Após definir o tema, levanta-se uma questão a ser respondida por meio de uma hipótese, que será confirmada ou refutada ao longo do trabalho de pesquisa. O problema é criado pelo próprio autor e está relacionado ao tema escolhido. Nesse contexto, o autor formulará um questionamento para delimitar a abrangência de sua pesquisa. Não há regras rígidas para a criação de um problema, mas alguns autores sugerem que ele seja expresso na forma de pergunta. A seção deve apresentar uma pergunta clara que o trabalho busca responder. Esta seção deve ter de 1 a 2 páginas.
 
 Exemplos:
 \begin{itemize}
@@ -310,7 +313,8 @@ O objetivo da pesquisa deve ser diretamente verificável ao final do trabalho. U
 Qual é o maior objetivo do trabalho? Descreve o resultado principal esperado da pesquisa.
 
 Exemplos de verbos para utilizar: desenvolver, avaliar, comparar, analisar, validar e investigar.
-Exemplo: Desenvolver um modelo de aprendizado de máquina para prever diagnósticos de COVID-19 utilizando dados epidemiológicos do estado do Acre.
+
+Exemplo de objetivo geral: Desenvolver um modelo de aprendizado de máquina para prever diagnósticos de COVID-19 utilizando dados epidemiológicos do estado do Acre.
 
 \subsection{Objetivos Específicos}\label{sec:ObjEspec}
 
@@ -352,11 +356,20 @@ Parte teórica da monografia: qual é o assunto que dá embasamento para a monog
 
 As referências dos documentos consultados para a elaboração do projeto são um item obrigatório. Normalmente, nelas constam os documentos e quaisquer fontes de informação consultadas no levantamento de literatura \cite{rev2019}. 
 
-\section{Conceitos Fundamentais}
-
 Podem ser elaborados diferentes capítulos para a fundamentação teórica, conforme a necessidade.
 
+\section{Conceitos Fundamentais}
+
 Geralmente, recomenda-se que a seção de revisão de literatura em artigos científicos seja composta por 5 a 10 páginas, fundamentando-se em autores, preferencialmente de livros. Referências da internet devem ser utilizadas com cautela, não devendo ultrapassar 30\% das obras citadas.
+
+Exemplo de tópicos:
+
+\begin{enumerate}
+    \item Ciência de dados
+    \item Mineração de dados
+    \item Aprendizado de máquina
+    \item Algoritmos de classificação
+\end{enumerate}
 
 Exemplo de refer\^encias~\cite{tese2019, confinter2019, confnac2019, site2019}.
 
@@ -401,7 +414,7 @@ Exemplo de código:
 
 \section{Trabalhos Relacionados}\label{sec:TrabRel}
 
-Compare os trabalhos existentes na literatura.
+Compare os trabalhos existentes na literatura com o objetivo de demonstrar conhecimento do estado da arte, identificar lacunas de pesquisa e posicionar o trabalho proposto.
 
 % -------------------------------------------------------------
 % METODOLOGIA
@@ -450,6 +463,8 @@ Etapas do experimento e métricas de avaliação.
 % -------------------------------------------------------------
 \chapter{Resultados e Discussões}\label{sec:resultados}\thispagestyle{empty}
 
+Este capítulo apresenta os resultados obtidos e sua interpretação.
+
 \section{Resultados Experimentais}
 
 \begin{quadro}[H]
@@ -470,6 +485,8 @@ Mineração & Aplicação de algoritmos \\
 
 
 \section{Discussão dos Resultados}
+
+Os resultados devem ser comparados com os trabalhos da literatura.
 
 % -------------------------------------------------------------
 % CONCLUSAO

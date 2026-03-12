@@ -2,7 +2,7 @@
 %% Adaptação do Modelo de TCC para o curso de Bacharelado em
 %% Sistemas de Informação da Universidade Federal do Acre
 %% Autor: Manoel Limeira (juniorlimeiras@gmail.com)
-%% Última versão Janeiro/2025
+%% Última versão Março/2026
 %% Arquivo em formato UTF-8
 %% Compilar com pdftex
 %% Precisa do arquivo abntex2-UFAC.sty
@@ -51,7 +51,18 @@
 \usepackage{listings}
 \usepackage{xcolor}
 %
+% -------------------------------------------------------------
+% CONFIGURACAO DE CODIGO FONTE
+% -------------------------------------------------------------
 
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    numbers=left,
+    numberstyle=\tiny,
+    frame=single,
+    breaklines=true
+}
 
 % ---
 % CONFIGURAÇÕES DE PACOTES
@@ -61,7 +72,7 @@
 \titulo{Moledo para Trabalhos de Conclusão do Curso de Bacharelado em Sistemas de Informação da UFAC}
 \autor{Nome Completo do(a) Autor(a)}
 \local{Rio Branco}
-\data{2025}
+\data{2026}
 \orientador{Nome Completo do(a) Orientador(a)}    % redefinido no abntex2-UFAC para aceitar Instituição (default = UFAC)
 %\coorientador{Nome Completo do(a) Coorientador(a)}
 \instituicao{Universidade Federal do Acre}
@@ -262,8 +273,8 @@ O problema é a mola propulsora de todo o trabalho de pesquisa. Após definir o 
 
 Exemplos:
 \begin{itemize}
-    \item - Como as técnicas de aprendizado de máquina podem melhorar a previsão da evasão de estudantes?
-    \item - É possível melhorar a acurácia dos diagnósticos médicos utilizando técnicas de mineração de dados?
+    \item Como as técnicas de aprendizado de máquina podem melhorar a previsão da evasão de estudantes?
+    \item É possível melhorar a acurácia dos diagnósticos médicos utilizando técnicas de mineração de dados?
 \end{itemize}
 
 \section{Objetivos}\label{sec:objetivos}
@@ -302,7 +313,7 @@ Insira os objetivos específicos no formato de tópicos.
 A proposta, o estudo e a apresentação podem ser justificados como objetivos de pesquisa, desde que o objeto da proposta, estudo ou apresentação seja algo original~\cite{wazlawick2009}.
 
 A Justificativa em um projeto de pesquisa, como o próprio nome indica, é o convencimento de que o trabalho de pesquisa é fundamental para ser efetivado. O tema escolhido pelo pesquisador e a Hipótese levantada são de suma importância para a sociedade ou para alguns indivíduos, devendo ser comprovados. A Justificativa exalta a importância do tema a ser estudado ou justifica a necessidade imperiosa de se levar a efeito tal empreendimento.
-Por que será feita a pesquisa sobre este assunto? Qual a importância em se pesquisar este assunto? Tem algum impacto social? Aqui está a importância científica e tecnológica do trabalho.
+Por que será feita a pesquisa sobre este assunto? Qual é a importância de se pesquisar este assunto? Tem algum impacto social? Aqui está a importância científica e tecnológica do trabalho.
  
 \section{Estrutura do Trabalho}\label{sec:Organizacao}
 
@@ -315,7 +326,7 @@ O que há em cada um dos capítulos seguintes: detalhar a estrutura dos capítul
 
 Parte teórica da monografia: qual é o assunto que dá embasamento para a monografia? Quais são os principais temas que precisam ser abordados? Divida os temas em subseções. 
 
-As referências dos documentos consultados para a elaboração do projeto são um item obrigatório. Normalmente, nelas constam os documentos e quaisquer fontes de informações consultadas no levantamento de literatura \cite{rev2019}. 
+As referências dos documentos consultados para a elaboração do projeto são um item obrigatório. Normalmente, nelas constam os documentos e quaisquer fontes de informação consultadas no levantamento de literatura \cite{rev2019}. 
 
 Podem ser elaborados diferentes capítulos para a fundamentação teórica, conforme a necessidade.
 
@@ -329,7 +340,7 @@ Exemplo de Tabela: ver Tabela~\ref{tab:exetab}.
 \begin{center}
 \caption{Distribuição IMC em Adultos}
 \label{tab:exetab}
-\begin{tabular}{|c |c |}
+\begin{tabular}{|c|c|}
 \hline
 \textbf{\textbf{Classificação}} & \textbf{IMC}\\
 \hline\hline
@@ -343,7 +354,26 @@ Obesidade & > 30 \\
 \end{table}
 
 \section{Trabalhos Relacionados}\label{sec:TrabRel}
+
 Compare os trabalhos da literatura.
+
+Exemplo de algoritmo:
+\begin{algorithm}
+\caption{Algoritmo de Classificação}
+\begin{algorithmic}
+\State Carregar dados
+\State Treinar modelo
+\State Avaliar resultados
+\end{algorithmic}
+\end{algorithm}
+
+Exemplo de código:
+\begin{lstlisting}[caption=Treinamento de modelo]
+    from sklearn.ensemble import RandomForestClassifier
+    
+    model = RandomForestClassifier()
+    model.fit(X_train, y_train)
+\end{lstlisting}
 
 % -------------------------------------------------------------
 % METODOLOGIA
@@ -357,30 +387,26 @@ A Metodologia é a explicação minuciosa, detalhada, rigorosa e exata de toda a
 É a explicação do tipo de pesquisa, do instrumental utilizado (questionário, entrevista etc.), do tempo previsto, da equipe de pesquisadores e da divisão do trabalho, das formas de tabulação e tratamento dos dados; enfim, de tudo aquilo que se utilizou no trabalho de pesquisa.
 Se envolver o desenvolvimento de sistemas ou de aplicações, falar quais ferramentas serão utilizadas.
 
-\section{Tipo, abordagem e procedimentos de Pesquisa}
-- Tipo de pesquisa
-   - Exploratória
-   - Descritiva
-   - Experimental
+\section{Tipo, Abordagem e Procedimentos de Pesquisa}
 
-- Abordagem
-   - Quantitativa
-   - Qualitativa
-
-- Procedimentos metodológicos
-   - Estudo de caso
-   - Experimento computacional
-   - Pesquisa bibliográfica
+\begin{itemize}
+    \item Tipo de pesquisa: exploratória, descritiva e experimental.
+    \item Abordagem: Quantitativa e qualitativa.
+    \item Procedimentos metodológicos: estudo de caso, experimento computacional e pesquisa bibliográfica.
+\end{itemize}
 
 \section{Materiais e Ferramentas}
-   - Bases de dados
-   - Linguagens de programação
-   - Bibliotecas
-   - Ferramentas utilizadas
+
+   \begin{enumerate}
+       \item Bases de dados
+       \item Linguagens de programação
+       \item Bibliotecas
+       \item Ferramentas utilizadas
+   \end{enumerate}
 
 \section{Procedimento Experimental}
-   - Etapas do experimento
-   - Métricas de avaliação
+
+Etapas do experimento e métricas de avaliação.
 
 %\begin{figure}[htbp]
 %  \begin{center}

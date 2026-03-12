@@ -94,9 +94,9 @@
 % Retira espaço extra obsoleto entre as frases.
 \frenchspacing
 
-% ----------------------------------------------------------
+% =============================================================
 % ELEMENTOS PRÉ-TEXTUAIS
-% ----------------------------------------------------------
+% =============================================================
 \pretextual
 
 % Capa
@@ -106,7 +106,7 @@
 \imprimirfolhaderosto
 % ---
 
-% Inserir folha de aprovação
+% Folha de aprovação
 \imprimirfolhadeaprovacao
 
 % Dedicatória
@@ -134,25 +134,27 @@ Elemento opcional, texto colocado ap\'os a dedicat\'oria em que o autor faz agra
 		(Qualquer usuário de \LaTeX)}
 	\end{flushright}
 \end{epigrafe}
-% ---
 
+
+% -------------------------------------------------------------
 % RESUMOS
-
-% resumo em português
+% -------------------------------------------------------------
+% Resumo em português
 \begin{resumo}
  \noindent
 %Insira o resumo aqui
-Segundo \cite{NBR6028:2003}, o resumo é elemento obrigat\'orio, constitu\'ido de uma sequ\^encia de frases concisas e objetivas e n\~ao de uma simples enumera\c c\~ao de t\'opicos, não ultrapassando 500 palavras. Além disso, o resumo deve ressaltar o objetivo, o método, os resultados e as conclusões do documento. A ordem e a extensão destes itens dependem do tipo de resumo (informativo ou indicativo) e do tratamento que cada item recebe no documento original. 
+Segundo \cite{NBR6028:2003}, o resumo é elemento obrigat\'orio, constitu\'ido de uma sequ\^encia de frases concisas e objetivas e n\~ao de uma simples enumera\c c\~ao de t\'opicos, não ultrapassando 500 palavras. Além disso, o resumo deve ressaltar o contexto, o objetivo, o método, os resultados e as conclusões do documento. A ordem e a extensão destes itens dependem do tipo de resumo (informativo ou indicativo) e do tratamento que cada item recebe no documento original. 
  \vspace{\onelineskip}
 
  \noindent
  \textbf{Palavras-chaves}: Palavras representativas do conteúdo do trabalho, isto é, palavras-chave e/ou descritores, conforme a ABNT NBR 6028~\cite{NBR6028:2003}.
 \end{resumo}
 
-% resumo em inglês
+% Resumo em inglês
 \begin{resumo}[Abstract]
  \begin{otherlanguage*}{english}
    \noindent
+   
    % Insira o abstract aqui
 
    \vspace{\onelineskip}
@@ -162,18 +164,21 @@ Segundo \cite{NBR6028:2003}, o resumo é elemento obrigat\'orio, constitu\'ido d
  \end{otherlanguage*}
 \end{resumo}
 
-% inserir lista de ilustrações
+% -------------------------------------------------------------
+% LISTAS
+% -------------------------------------------------------------
+
+% Lista de ilustrações
 \pdfbookmark[0]{\listfigurename}{lof}
 \listoffigures*
 \cleardoublepage
 % ---
 
-% inserir lista de tabelas
+% Lista de tabelas
 \pdfbookmark[0]{\listtablename}{lot}
 \listoftables*
 \cleardoublepage
 % ---
-
 
 % Lista de siglas e abreviaturas (opcional)
 % sintaxe: \item [sigla] Descrição da sigla
@@ -190,14 +195,14 @@ Segundo \cite{NBR6028:2003}, o resumo é elemento obrigat\'orio, constitu\'ido d
 %\item[$\infty$ ] Infinito
 %\end{simbolos}
 
-
-% inserir o sumario
+% -------------------------------------------------------------
+% SUMÁRIO
+% -------------------------------------------------------------
+% Sumario
 \pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents*
 \cleardoublepage
 % ---
-
-
 
 % =============================================================
 % ELEMENTOS TEXTUAIS
@@ -205,22 +210,22 @@ Segundo \cite{NBR6028:2003}, o resumo é elemento obrigat\'orio, constitu\'ido d
 
 \textual
 
-
 %Modifique a estrutura dos capítulos e seções de acordo com a necessidade do seu trabalho
 % -------------------------------------------------------------
-% INTRODUCAO
+% INTRODUÇÃO
 % -------------------------------------------------------------
 
 \chapter{Introdução}\label{sec:introducao} \thispagestyle{empty}
 
 Apresentar uma visão geral do assunto que será abordado no trabalho, procurando fazer com que o leitor adquira uma compreensão inicial do que será tratado e fornecendo informações que o levem a perceber sua importância. A introdução deve apresentar o contexto geral do problema: a área de estudo, o cenário atual e a relevância do tema. 
+Recomenda-se que esta seção tenha entre 2 e 5 páginas.
 
-Exemplo de Figura: Ver Figura~\ref{fig:exefig}.
+As figuras devem ser citadas no texto antes de aparecerem, possuir legenda clara e indicar a fonte. Exemplo de Figura: Ver Figura~\ref{fig:exefig}.
 
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.3\linewidth]{figuras/exefig.eps}
-\caption{Exemplo de figura.}
+\caption{Logotipo da Universidade Federal do Acre (UFAC).}
 \label{fig:exefig}
 \end{figure}
 
@@ -241,9 +246,15 @@ Alguns links interessantes para se trabalhar com a classe abn\TeX\ e \LaTeX\ em 
 
 \section{Problema da Pesquisa}\label{sec:ProbPesq}
 
-Qual a grande questão que se busca responder? Qual o problema que se pretende resolver? 
-O problema é a mola propulsora de todo o trabalho de pesquisa. Após definir o tema, levanta-se uma questão a ser respondida por meio de uma hipótese, que será confirmada ou refutada ao longo do trabalho de pesquisa. O problema é criado pelo próprio autor e está relacionado ao tema escolhido. Nesse contexto, o autor formulará um questionamento para delimitar a abrangência de sua pesquisa. Não há regras rígidas para a criação de um problema, mas alguns autores sugerem que ele seja expresso na forma de pergunta. A seção deve apresentar uma pergunta clara que o trabalho busca responder.
-De 1 a 2 páginas.
+Qual é a grande questão que se busca responder? Qual é o problema que se pretende resolver? 
+
+O problema é a mola propulsora de todo o trabalho de pesquisa. Após definir o tema, levanta-se uma questão a ser respondida por meio de uma hipótese, que será confirmada ou refutada ao longo do trabalho de pesquisa. O problema é criado pelo próprio autor e está relacionado ao tema escolhido. Nesse contexto, o autor formulará um questionamento para delimitar a abrangência de sua pesquisa. Não há regras rígidas para a criação de um problema, mas alguns autores sugerem que ele seja expresso na forma de pergunta. A seção deve apresentar uma pergunta clara que o trabalho busca responder. De 1 a 2 páginas.
+
+Exemplos:
+\begin{itemize}
+    \item - Como as técnicas de aprendizado de máquina podem melhorar a previsão da evasão de estudantes?
+    \item - É possível melhorar a acurácia dos diagnósticos médicos utilizando técnicas de mineração de dados?
+\end{itemize}
 
 \section{Objetivos}\label{sec:objetivos}
 
@@ -251,24 +262,29 @@ O objetivo da pesquisa deve ser diretamente verificável ao final do trabalho. U
 
 \subsection{Objetivo Geral}\label{sec:ObjGeral}
 
-Qual é o maior objetivo do trabalho?
+Qual é o maior objetivo do trabalho? Descreve o resultado principal esperado da pesquisa.
+
+Exemplos de verbos para utilizar: desenvolver, avaliar, comparar, analisar, validar e investigar.
+Exemplo: Desenvolver um modelo de aprendizado de máquina para prever diagnósticos de COVID-19 utilizando dados epidemiológicos do estado do Acre.
 
 \subsection{Objetivos Específicos}\label{sec:ObjEspec}
 
 Os objetivos específicos do trabalho devem ser expressos na forma de uma condição não trivial, cujo sucesso possa ser verificado ao final do trabalho. Um objetivo bem formulado geralmente conterá verbos como ``demonstrar", ``provar" e ``melhorar" (com base em alguma métrica definida), entre outros.
 
-Deve-se tomar cuidado com certos verbos que determinam objetivos cuja verificação é trivial e, portanto, inadequada. Entre eles, pode-se citar ``propor”, ``estudar”, ``apresentar”, entre outros. Se o objetivo do trabalho é propor algo, basta que a proposta seja feita para que o objetivo seja atingido, tornando essa abordagem trivial e inadequada. Isso ocorre porque a definição do objetivo não menciona a qualidade ou a relevância do que será proposto.
+Deve-se tomar cuidado com certos verbos que determinam objetivos cuja verificação é trivial e, portanto, inadequada. Entre eles, pode-se citar ``propor'', ``estudar'', ``apresentar'', entre outros. Se o objetivo do trabalho é propor algo, basta que a proposta seja feita para que o objetivo seja atingido, tornando essa abordagem trivial e inadequada. Isso ocorre porque a definição do objetivo não menciona a qualidade ou a relevância do que será proposto.
 
 Se o objetivo do trabalho é estudar algo, ele será considerado alcançado se o tema for investigado, independentemente de novas informações serem aprendidas ou não, tornando-se, portanto, inadequado como objetivo de pesquisa. Estudar, em geral, é o objetivo do aluno e não do trabalho.
 
-Se o objetivo do trabalho consiste em apresentar algo, novamente ele é trivial e inadequado. Uma simples apresentação não produz, necessariamente, conhecimento novo. Por exemplo, ``o objetivo deste trabalho é apresentar os operadores da lógica booleana”; tal objetivo pode ser alcançado com um pequeno texto explicando os operadores conhecidos. Contudo, como não traz informação nova, não se configura como um objetivo de pesquisa.
+Se o objetivo do trabalho consiste em apresentar algo, novamente ele é trivial e inadequado. Uma simples apresentação não produz, necessariamente, conhecimento novo. Por exemplo, ``o objetivo deste trabalho é apresentar os operadores da lógica booleana''; tal objetivo pode ser alcançado com um pequeno texto explicando os operadores conhecidos. Contudo, como não traz informação nova, não se configura como um objetivo de pesquisa.
 
 Insira os objetivos específicos no formato de tópicos.
 
 \begin{enumerate}
-    \item[a)] Objetivo 1
-    \item[b)] Objetivo 2
-    \item[c)] Objetivo 3
+    \item[a)] Coletar e preparar o conjunto de dados.
+    \item[b)] Realizar o pré-processamento dos dados.
+    \item[c)] Treinar modelos de classificação.
+    \item[d)] Avaliar os modelos utilizando métricas de desempenho.
+    \item[e)] Comparar os resultados obtidos.
 \end{enumerate}
 
 \section{Justificativa da Pesquisa}\label{sec:Justificativa}
@@ -331,21 +347,30 @@ A Metodologia é a explicação minuciosa, detalhada, rigorosa e exata de toda a
 É a explicação do tipo de pesquisa, do instrumental utilizado (questionário, entrevista etc.), do tempo previsto, da equipe de pesquisadores e da divisão do trabalho, das formas de tabulação e tratamento dos dados; enfim, de tudo aquilo que se utilizou no trabalho de pesquisa.
 Se envolver o desenvolvimento de sistemas ou de aplicações, falar quais ferramentas serão utilizadas.
 
-\section{Tipo de Pesquisa}
+\section{Tipo, abordagem e procedimentos de Pesquisa}
+- Tipo de pesquisa
+   - Exploratória
+   - Descritiva
+   - Experimental
 
-Ex: experimental, exploratória.
+- Abordagem
+   - Quantitativa
+   - Qualitativa
 
-\section{Base de Dados}
+- Procedimentos metodológicos
+   - Estudo de caso
+   - Experimento computacional
+   - Pesquisa bibliográfica
 
-Descreva o(s) \textit{dataset(s)}.
-
-\section{Ferramentas Utilizadas}
-
-Linguagens, bibliotecas e softwares.
+\section{Materiais e Ferramentas}
+   - Bases de dados
+   - Linguagens de programação
+   - Bibliotecas
+   - Ferramentas utilizadas
 
 \section{Procedimento Experimental}
-
-Descreva as etapas do experimento.
+   - Etapas do experimento
+   - Métricas de avaliação
 
 %\begin{figure}[htbp]
 %  \begin{center}
@@ -370,54 +395,63 @@ Descreva as etapas do experimento.
 
 Retome o objetivo, os resultados e as contribuições.
 
-\section{Cronograma}\label{sec:cronograma}
-O abn\TeX\ introduziu o comando \texttt{IBGEtab} para a formatação de tabelas. Um exemplo de tabela convencional do \LaTeX\ pode ser observado na \autoref{tab:cronograma} enquanto um exemplo utilizando o \texttt{IBGEtab} é apresentado na Tabela \ref{tab:cronogramaIBGE}.
+% \section{Cronograma}\label{sec:cronograma}
+% O abn\TeX\ introduziu o comando \texttt{IBGEtab} para a formatação de tabelas. Um exemplo de tabela convencional do \LaTeX\ pode ser observado na \autoref{tab:cronograma} enquanto um exemplo utilizando o \texttt{IBGEtab} é apresentado na Tabela \ref{tab:cronogramaIBGE}.
 
-\begin{table}[htbp]
-  \centering
-    \caption[Cronograma Normal]{Cronograma do Projeto em Meses}
-    \label{tab:cronograma}
-    \begin{tabular}{lcccccccccccc} %|c|c|c|c|c|c|c|c|c|c|c|c
-    \toprule
-    \textbf{Atividade} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} & \textbf{11} & \textbf{12} \\
-    \midrule
-        Revisão Bibliográfica & $\bullet$ & $\bullet$ & & & & & & & & & & \\
-        Métodos & & & $\bullet$ & $\bullet$ & & & & & & & & \\
-        Testes & & & & $\bullet$ & $\bullet$ & $\bullet$ & & & & & & \\
-        Resultados & & & & & & & $\bullet$ & $\bullet$ & & & & \\
-        Conclusão & & & & & & & $\bullet$ & $\bullet$ & $\bullet$ & & & \\
-        Banca & & & & & & &&&& $\bullet$ & $\bullet$ & $\bullet$ \\
-    \bottomrule
-    \end{tabular}%
-    \fonte{Próprio Autor}
-\end{table}%
+% \begin{table}[htbp]
+%   \centering
+%     \caption[Cronograma Normal]{Cronograma do Projeto em Meses}
+%     \label{tab:cronograma}
+%     \begin{tabular}{lcccccccccccc} %|c|c|c|c|c|c|c|c|c|c|c|c
+%     \toprule
+%     \textbf{Atividade} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} & \textbf{11} & \textbf{12} \\
+%     \midrule
+%         Revisão Bibliográfica & $\bullet$ & $\bullet$ & & & & & & & & & & \\
+%         Métodos & & & $\bullet$ & $\bullet$ & & & & & & & & \\
+%         Testes & & & & $\bullet$ & $\bullet$ & $\bullet$ & & & & & & \\
+%         Resultados & & & & & & & $\bullet$ & $\bullet$ & & & & \\
+%         Conclusão & & & & & & & $\bullet$ & $\bullet$ & $\bullet$ & & & \\
+%         Banca & & & & & & &&&& $\bullet$ & $\bullet$ & $\bullet$ \\
+%     \bottomrule
+%     \end{tabular}%
+%     \fonte{Próprio Autor}
+% \end{table}%
 
 \section{Contribuições}
 
+Listar as principais contribuições científicas e/ou tecnológicas geradas pelo trabalho.
+
 \section{Limitações}
+
+Descrever limitações como:
+- Tamanho do \textit{dataset}.
+- Limitações computacionais.
+- Restrições metodológicas.
 
 \section{Trabalhos Futuros}
 
-\begin{table}[htbp]
-    \IBGEtab{
-    \caption[Cronograma (IBGE)]{Cronograma do Projeto em Meses usando o comando IBGEtab para a formatação da tabela}
-    \label{tab:cronogramaIBGE}
-    }{
-    \begin{tabular}{lcccccccccccc} %|c|c|c|c|c|c|c|c|c|c|c|c
-    \toprule
-    \textbf{Atividade} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} & \textbf{11} & \textbf{12} \\
-    \midrule
-        Revisão Bibliográfica & $\bullet$ & $\bullet$ & & & & & & & & & & \\
-        Métodos & & & $\bullet$ & $\bullet$ & & & & & & & & \\
-        Testes & & & & $\bullet$ & $\bullet$ & $\bullet$ & & & & & & \\
-        Resultados & & & & & & & $\bullet$ & $\bullet$ & & & & \\
-        Conclusão & & & & & & & $\bullet$ & $\bullet$ & $\bullet$ & & & \\
-        Banca & & & & & & &&&& $\bullet$ & $\bullet$ & $\bullet$ \\
-    \bottomrule
-    \end{tabular}%
-    }{
-    \fonte{Próprio Autor}}
-\end{table}%
+Sugerir trabalhos futuros.
+
+% \begin{table}[htbp]
+%     \IBGEtab{
+%     \caption[Cronograma (IBGE)]{Cronograma do Projeto em Meses usando o comando IBGEtab para a formatação da tabela}
+%     \label{tab:cronogramaIBGE}
+%     }{
+%     \begin{tabular}{lcccccccccccc} %|c|c|c|c|c|c|c|c|c|c|c|c
+%     \toprule
+%     \textbf{Atividade} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} & \textbf{11} & \textbf{12} \\
+%     \midrule
+%         Revisão Bibliográfica & $\bullet$ & $\bullet$ & & & & & & & & & & \\
+%         Métodos & & & $\bullet$ & $\bullet$ & & & & & & & & \\
+%         Testes & & & & $\bullet$ & $\bullet$ & $\bullet$ & & & & & & \\
+%         Resultados & & & & & & & $\bullet$ & $\bullet$ & & & & \\
+%         Conclusão & & & & & & & $\bullet$ & $\bullet$ & $\bullet$ & & & \\
+%         Banca & & & & & & &&&& $\bullet$ & $\bullet$ & $\bullet$ \\
+%     \bottomrule
+%     \end{tabular}%
+%     }{
+%     \fonte{Próprio Autor}}
+% \end{table}%
 
 
 

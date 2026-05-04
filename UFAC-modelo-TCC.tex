@@ -40,12 +40,8 @@
 %figuras
 \usepackage[outdir=./]{epstopdf}
 \usepackage{epsfig}
-\usepackage{float}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{booktabs}
-\usepackage{caption}
-\usepackage{subcaption}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 \usepackage{listings}
@@ -53,7 +49,6 @@
 \usepackage{url}
 \usepackage{hyperref}
 \usepackage{tikz}
-\usepackage{float}
 \usepackage{caption}
 \usepackage{newfloat}
 %
@@ -73,18 +68,10 @@
     stringstyle=\color{orange}
 }
 
-% -------------------------------------------------------------
-% AMBIENTE QUADRO ABNT
-% -------------------------------------------------------------
-\DeclareFloatingEnvironment[
-    fileext=loq,
-    listname={Lista de quadros},
-    name=Quadro
-]{quadro}
 
-% ---
+% -------------------------------------------------------------
 % CONFIGURAÇÕES DE PACOTES
-% ---
+% -------------------------------------------------------------
 
 % Informações de dados para CAPA e FOLHA DE ROSTO
 \titulo{Moledo para Trabalhos de Conclusão do Curso de Bacharelado em Sistemas de Informação da UFAC}
@@ -106,9 +93,9 @@
 \preambulo{Trabalho de Conclusão de Curso apresentado como exigência parcial para obtenção do grau de bacharel em Sistemas de Informação da Universidade Federal do Acre.}
 % ---
 
-% ---
+% -------------------------------------------------------------
 % Configurações de aparência do PDF final
-
+% -------------------------------------------------------------
 % informações para o arquivo pdf de saída
 % Interessante alterar a cor dos links para preto(black)
 % na versão final para imprimir
@@ -127,7 +114,41 @@
 		bookmarksdepth=4   % profundidade do sumário do PDF
 }
 \makeatother
-% ---
+
+% -------------------------------------------------------------
+% Lista de Quadros
+% -------------------------------------------------------------
+\DeclareCaptionType{quadro}[Quadro][Lista de quadros]
+\counterwithin{quadro}{chapter}
+\renewcommand{\thequadro}{\arabic{quadro}}
+
+\makeatletter
+% 1. Força o nome na legenda (em cima do quadro)
+\renewcommand{\fnum@quadro}{Quadro~\thequadro}
+
+% 2. Reconstrói a linha da lista com a formatação do abnTeX2
+\renewcommand{\l@quadro}[2]{%
+  \ifnum \c@tocdepth >\z@
+    \vskip \cftbeforetabskip
+    {\leftskip \cfttableindent
+     \rightskip \@tocrmarg
+     \parfillskip -\rightskip
+     \parindent \cfttableindent
+     \@afterindenttrue
+     \interlinepenalty\@M
+     \leavevmode
+     % Ajuste da largura do bloco inicial (Nome + Número + Traço)
+     \@tempdima 6.5em 
+     \advance\leftskip \@tempdima
+     \null\nobreak\hskip -\leftskip
+     % Redefinição local do \numberline para: Quadro X.X – Título
+     {\def\numberline##1{Quadro~##1\space\textendash\space}#1}\nobreak
+     % Pontinhos (leaders)
+     \cftdotfill{\cftdotsep}
+     % Número da página
+     \nobreak#2\par}%
+  \fi}
+\makeatother
 
 \begin{document}
 % Retira espaço extra obsoleto entre as frases.
@@ -195,7 +216,8 @@ Segundo \cite{NBR6028:2003}, o resumo é elemento obrigat\'orio, constitu\'ido d
    \noindent
    
    % Insira o abstract aqui
-
+   According to \cite{NBR6028:2003}, the summary is a mandatory element, consisting of a sequence of concise and objective sentences and not a simple enumeration of topics, not exceeding 500 words. Furthermore, the summary should emphasize the context, objective, method, results and conclusions of the document. The order and length of these items do not depend on the type of summary (informative or indicative) and the treatment that each item does not receive in the original document.
+   
    \vspace{\onelineskip}
 
    \noindent
@@ -213,15 +235,15 @@ Segundo \cite{NBR6028:2003}, o resumo é elemento obrigat\'orio, constitu\'ido d
 \cleardoublepage
 % ---
 
-% Lista de quadros
-\pdfbookmark[0]{\listofquadrosname}{loq}
-\listofquadros
-\cleardoublepage
-% ---
-
 % Lista de tabelas
 \pdfbookmark[0]{\listtablename}{lot}
 \listoftables*
+\cleardoublepage
+% ---
+
+% Lista de quadros
+\pdfbookmark[0]{Lista de quadros}{loq}
+\listofquadros*
 \cleardoublepage
 % ---
 
@@ -262,7 +284,7 @@ Segundo \cite{NBR6028:2003}, o resumo é elemento obrigat\'orio, constitu\'ido d
 
 \chapter{Introdução}\label{sec:introducao} \thispagestyle{empty}
 
-Apresentar uma visão geral do assunto que será abordado no trabalho, procurando fazer com que o leitor adquira uma compreensão inicial do que será tratado e fornecendo informações que o levem a perceber sua importância. A introdução deve apresentar o contexto geral do problema: a área de estudo, o cenário atual e a relevância do tema. 
+A introdução deve apresentar uma visão geral do assunto que será abordado no trabalho, buscando fazer com que o leitor adquira uma compreensão inicial do que será tratado e fornecendo informações que o levem a perceber sua importância. A introdução deve apresentar o contexto geral do problema: a área de estudo, o cenário atual e a relevância do tema. 
 
 Exemplo de contextualização: Nos últimos anos, o crescimento exponencial da quantidade de dados gerados por sistemas digitais tem impulsionado o desenvolvimento de técnicas de análise de dados e aprendizado de máquina.
 
@@ -296,7 +318,9 @@ Alguns links interessantes para se trabalhar com a classe abn\TeX\ e \LaTeX\ em 
 
 Qual é a grande questão que se busca responder? Qual é o problema que se pretende resolver? 
 
-O problema é a mola propulsora de todo o trabalho de pesquisa. Após definir o tema, levanta-se uma questão a ser respondida por meio de uma hipótese, que será confirmada ou refutada ao longo do trabalho de pesquisa. O problema é criado pelo próprio autor e está relacionado ao tema escolhido. Nesse contexto, o autor formulará um questionamento para delimitar a abrangência de sua pesquisa. Não há regras rígidas para a criação de um problema, mas alguns autores sugerem que ele seja expresso na forma de pergunta. A seção deve apresentar uma pergunta clara que o trabalho busca responder. Esta seção deve ter de 1 a 2 páginas.
+O problema é a mola propulsora de todo o trabalho de pesquisa. Após definir o tema, levanta-se uma questão a ser respondida por meio de uma hipótese, que será confirmada ou refutada ao longo do trabalho de pesquisa. O problema é criado pelo próprio autor e está relacionado ao tema escolhido. Nesse contexto, o autor formulará um questionamento para delimitar a abrangência de sua pesquisa. Não há regras rígidas para a criação de um problema, mas alguns autores sugerem que ele seja expresso na forma de pergunta. A seção deve apresentar uma pergunta clara que o trabalho busca responder. 
+
+Recomenda-se que a introdução tenha de 1 a 2 páginas.
 
 Exemplos:
 \begin{itemize}
@@ -345,7 +369,7 @@ Por que será feita a pesquisa sobre este assunto? Qual é a importância de se 
  
 \section{Estrutura do Trabalho}\label{sec:Organizacao}
 
-O que há em cada um dos capítulos seguintes: detalhar a estrutura dos capítulos que será adotada, partindo do 1º capítulo da monografia até as referências.
+O que há em cada um dos capítulos seguintes: detalhar a estrutura dos capítulos que será adotada, partindo do 1º capítulo do trabalho até os apêndices e anexos.
 
 % -------------------------------------------------------------
 % FUNDAMENTACAO TEORICA
@@ -360,7 +384,7 @@ Podem ser elaborados diferentes capítulos para a fundamentação teórica, conf
 
 \section{Conceitos Fundamentais}
 
-Geralmente, recomenda-se que a seção de revisão de literatura em artigos científicos seja composta por 5 a 10 páginas, fundamentando-se em autores, preferencialmente de livros. Referências da internet devem ser utilizadas com cautela, não devendo ultrapassar 30\% das obras citadas.
+Geralmente, recomenda-se que a seção de revisão da literatura em artigos científicos seja composta por 5 a 10 páginas, fundamentando-se em autores, preferencialmente de livros. Referências da internet devem ser utilizadas com cautela, não devendo ultrapassar 30\% das obras citadas.
 
 Exemplo de tópicos:
 
@@ -375,14 +399,14 @@ Exemplo de refer\^encias~\cite{tese2019, confinter2019, confnac2019, site2019}.
 
 Exemplo de Tabela: ver Tabela~\ref{tab:exetab}.
 
-\begin{table}[!ht]
+\begin{table}[!htb]
 \begin{center}
 \caption{Distribuição IMC em Adultos}
 \label{tab:exetab}
-\begin{tabular}{|c|c|}
+\begin{tabular}{c|c}
 \hline
 \textbf{\textbf{Classificação}} & \textbf{IMC}\\
-\hline\hline
+\hline
 Baixo Peso & < 18,5 \\
 Peso Adequado & > 18,5 e < 25 \\
 Sobrepeso & > 25 e < 30 \\
@@ -421,12 +445,17 @@ Compare os trabalhos existentes na literatura com o objetivo de demonstrar conhe
 % -------------------------------------------------------------
 \chapter{Materiais e Métodos}\label{sec:metodos}\thispagestyle{empty}
 
-Descreva como a pesquisa foi conduzida.
-Como será realizada a monografia? Pesquisa bibliográfica, estudo de caso, levantamento (ver manual sobre metodologia no grupo)
-Detalhar se há instrumentos de coleta de dados (questionário, formulário, entrevista, observação), quem é a população e a amostra. Como serão tabulados os dados?  
-A Metodologia é a explicação minuciosa, detalhada, rigorosa e exata de toda ação desenvolvida no método (caminho) do trabalho de pesquisa. 
-É a explicação do tipo de pesquisa, do instrumental utilizado (questionário, entrevista etc.), do tempo previsto, da equipe de pesquisadores e da divisão do trabalho, das formas de tabulação e tratamento dos dados; enfim, de tudo aquilo que se utilizou no trabalho de pesquisa.
-Se envolver o desenvolvimento de sistemas ou de aplicações, falar quais ferramentas serão utilizadas.
+Descreva como a pesquisa foi conduzida. Como será realizada a monografia? Pesquisa bibliográfica, estudo de caso, levantamento (ver manual sobre metodologia no grupo). Detalhar se há instrumentos de coleta de dados (questionário, formulário, entrevista, observação), quem é a população e a amostra. Como serão tabulados os dados?  
+
+A Metodologia é a explicação minuciosa, detalhada, rigorosa e exata de toda ação desenvolvida no método (caminho) do trabalho de pesquisa. É a explicação do tipo de pesquisa, do instrumento utilizado (questionário, entrevista etc.), do tempo previsto, da equipe de pesquisadores e da divisão do trabalho, das formas de tabulação e tratamento dos dados; enfim, de tudo aquilo que foi utilizado no trabalho de pesquisa. Se envolver o desenvolvimento de sistemas ou de aplicações, deve-se mencionar quais ferramentas serão utilizadas. 
+
+Além disso, conforme o Art 9º da Portaria 2664, de 6 de março de 2026 - Política de Integridade na Atividade Científica do CNPq - são diretrizes de integridade na pesquisa científica:
+
+\begin{itemize}
+    \item Declarar o uso de ferramentas de Inteligência Artificial Generativa (IAG), de qualquer espécie e em qualquer fase do desenvolvimento da pesquisa (concepção, redação, análise de dados, submissão), especificando nos respectivos textos e exposições eletrônicas a ferramenta utilizada e a finalidade;
+    \item É vedada a submissão de conteúdo gerado por IAG como se fosse de autoria humana, sendo os autores integralmente responsáveis pelo conteúdo final, inclusive por eventuais plágios ou imprecisões geradas pela IAG;
+    \item Responsabilizar-se integralmente pelo conteúdo final da pesquisa, inclusive por eventuais plágios ou imprecisões geradas pela IAG.
+\end{itemize}
 
 \section{Tipo, Abordagem e Procedimentos de Pesquisa}
 
@@ -447,16 +476,7 @@ Se envolver o desenvolvimento de sistemas ou de aplicações, falar quais ferram
 
 \section{Procedimento Experimental}
 
-Etapas do experimento e métricas de avaliação.
-
-%\begin{figure}[htbp]
-%  \begin{center}
-%  \includegraphics[width=.5\linewidth]{LogoUFV.png}\\
-%  \end{center}
-%  \caption[Exemplo de Figura]{Exemplo de inserção de figura no \LaTeX. A legenda deve vir abaixo da figura. Pode usar o comando \texttt{\textbackslash legend} ou \texttt{\textbackslash fonte} para inserir a fonte da figura. Observe que na lista de ilustrações foi utilizado o nome curto fornecido como parâmetro do caption da figura (veja o arquivo fonte .tex) ao invés dessa legenda estupidamente extensa feita de forma proposital}
-%  \label{fig:logo}
-%  \legend{Fonte: Próprio Autor}
-%\end{figure}
+Detalhamento das etapas do experimento e das métricas de avaliação.
 
 % -------------------------------------------------------------
 % RESULTADOS
@@ -467,18 +487,18 @@ Este capítulo apresenta os resultados obtidos e sua interpretação.
 
 \section{Resultados Experimentais}
 
-\begin{quadro}[H]
+\begin{quadro}[htb]
 \centering
-\caption{Etapas do processo de mineração de dados}
-\begin{tabular}{|c|l|}
+\caption{Etapas do processo de mineração de dados.}
+\label{qua:mineracao}
+\begin{tabular}{|c|c|l|}
 \hline
-Etapa & Descrição \\
+\textbf{\#} & \textbf{Etapa} & \textbf{Descrição} \\
 \hline
-Seleção & Escolha dos dados relevantes \\
-Pré-processamento & Limpeza e tratamento \\
-Transformação & Preparação para mineração \\
-Mineração & Aplicação de algoritmos \\
-\hline
+1 & Seleção & Escolha dos dados relevantes \\ \hline
+2 & Pré-processamento & Limpeza e tratamento dos dados \\ \hline
+3 & Transformação & Preparação para a etapa de mineração \\ \hline
+4 & Mineração & Aplicação de algoritmos de mineração \\ \hline
 \end{tabular}
 \fonte{Autor (2026)}
 \end{quadro}
@@ -495,65 +515,22 @@ Os resultados devem ser comparados com os trabalhos da literatura.
 
 Retome o objetivo, os resultados e as contribuições.
 
-% \section{Cronograma}\label{sec:cronograma}
-% O abn\TeX\ introduziu o comando \texttt{IBGEtab} para a formatação de tabelas. Um exemplo de tabela convencional do \LaTeX\ pode ser observado na \autoref{tab:cronograma} enquanto um exemplo utilizando o \texttt{IBGEtab} é apresentado na Tabela \ref{tab:cronogramaIBGE}.
-
-% \begin{table}[htbp]
-%   \centering
-%     \caption[Cronograma Normal]{Cronograma do Projeto em Meses}
-%     \label{tab:cronograma}
-%     \begin{tabular}{lcccccccccccc} %|c|c|c|c|c|c|c|c|c|c|c|c
-%     \toprule
-%     \textbf{Atividade} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} & \textbf{11} & \textbf{12} \\
-%     \midrule
-%         Revisão Bibliográfica & $\bullet$ & $\bullet$ & & & & & & & & & & \\
-%         Métodos & & & $\bullet$ & $\bullet$ & & & & & & & & \\
-%         Testes & & & & $\bullet$ & $\bullet$ & $\bullet$ & & & & & & \\
-%         Resultados & & & & & & & $\bullet$ & $\bullet$ & & & & \\
-%         Conclusão & & & & & & & $\bullet$ & $\bullet$ & $\bullet$ & & & \\
-%         Banca & & & & & & &&&& $\bullet$ & $\bullet$ & $\bullet$ \\
-%     \bottomrule
-%     \end{tabular}%
-%     \fonte{Próprio Autor}
-% \end{table}%
-
 \section{Contribuições}
 
 Listar as principais contribuições científicas e/ou tecnológicas geradas pelo trabalho.
 
 \section{Limitações}
 
-Descrever limitações como:
-- Tamanho do \textit{dataset}.
-- Limitações computacionais.
-- Restrições metodológicas.
+Descrever limitações, como:
+\begin{enumerate}
+    \item Tamanho do \textit{dataset}.
+    \item Limitações computacionais.
+    \item Restrições metodológicas.
+\end{enumerate}
 
 \section{Trabalhos Futuros}
 
 Sugerir trabalhos futuros.
-
-% \begin{table}[htbp]
-%     \IBGEtab{
-%     \caption[Cronograma (IBGE)]{Cronograma do Projeto em Meses usando o comando IBGEtab para a formatação da tabela}
-%     \label{tab:cronogramaIBGE}
-%     }{
-%     \begin{tabular}{lcccccccccccc} %|c|c|c|c|c|c|c|c|c|c|c|c
-%     \toprule
-%     \textbf{Atividade} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} & \textbf{11} & \textbf{12} \\
-%     \midrule
-%         Revisão Bibliográfica & $\bullet$ & $\bullet$ & & & & & & & & & & \\
-%         Métodos & & & $\bullet$ & $\bullet$ & & & & & & & & \\
-%         Testes & & & & $\bullet$ & $\bullet$ & $\bullet$ & & & & & & \\
-%         Resultados & & & & & & & $\bullet$ & $\bullet$ & & & & \\
-%         Conclusão & & & & & & & $\bullet$ & $\bullet$ & $\bullet$ & & & \\
-%         Banca & & & & & & &&&& $\bullet$ & $\bullet$ & $\bullet$ \\
-%     \bottomrule
-%     \end{tabular}%
-%     }{
-%     \fonte{Próprio Autor}}
-% \end{table}%
-
-
 
 % =============================================================
 % POS-TEXTUAIS

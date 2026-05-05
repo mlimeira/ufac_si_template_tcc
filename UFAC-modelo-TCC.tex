@@ -30,6 +30,8 @@
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{booktabs}           % \toprule, \midrule e \bottomrule para tabelas
+\usepackage{csquotes}
+\usepackage{tocloft}
 
 % Sistema autor-data com títulos nas referências em negrito
 % --------------------------------------------------------------------------------------
@@ -42,6 +44,7 @@
     uniquelist=false,
     uniquename=false,
     backref=true,
+    language=brazil, % Garante a tradução dos termos técnicos
     backend=biber        % Define o motor como Biber
 ]{biblatex}
 
@@ -155,7 +158,7 @@
 % 2. Reconstrói a linha da lista com a formatação do abnTeX2
 \renewcommand{\l@quadro}[2]{%
   \ifnum \c@tocdepth >\z@
-    \vskip \cftbeforetabskip
+    \vskip 0.5em %\cftbeforetabskip
     {\leftskip \cfttableindent
      \rightskip \@tocrmarg
      \parfillskip -\rightskip
@@ -316,22 +319,24 @@ Exemplo de contextualização: Nos últimos anos, o crescimento exponencial da q
 
 Recomenda-se que a introdução tenha entre 2 e 5 páginas.
 
-As figuras devem ser citadas no texto antes de aparecerem, possuir legenda clara e indicar a fonte. Exemplo de Figura: Ver Figura~\ref{fig:exefig}.
+As figuras devem ser citadas no texto antes de aparecerem, possuir legenda clara e indicar a fonte. Exemplo de Figura: Ver Figura~\ref{fig:brasao-ufac}.
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.3\linewidth]{figuras/exefig.eps}
 \caption{Brasão da Universidade Federal do Acre (UFAC).}
-\label{fig:exefig}
+\label{fig:brasao-ufac}
+\includegraphics[width=0.3\linewidth]{figuras/exefig.eps}
+\fonte{Elaborado pelo autor (2026).}
 \end{figure}
 
 Escrever bem é uma arte que exige técnica e dedicação. Há vários bons livros sobre como escrever uma boa dissertação ou tese. Para a escrita de textos em Ciência da Computação, \textit{Writing for Computer Science} \cite{zobel2014} é uma leitura obrigatória. O livro ``Metodologia de Pesquisa para Ciência da Computação'' \cite{wazlawick2009} também deve ser lido com atenção. 
 
 Alguns links interessantes para se trabalhar com a classe abn\TeX\ e \LaTeX\ em geral\footnote{E também para usar alguns comandos de citação como exemplo}:
 \begin{alineas}
+  \item Como customizar: \citeonline{abntex2-wiki-como-customizar}
   \item Informações da classe Abn\TeX : \citeonline{abntex2classe}
   \item Ajustes nas citações e referências: \citeonline{abntex2cite} e \citeonline{abntex2cite-alf}
-  \item Classe memoir (base do Abn\TeX\ ): \apudonline{memoir}{abntex2classe}
+  \item Classe memoir (base do Abn\TeX\ ): \apud{memoir}{abntex2classe}
   \item Livros interessantes sobre \LaTeX: \cite{Dongen2012,LeslieLamport90,FrankMittelbach111,Dongen2012}
   \item Distribuição \LaTeX\ para windows: \url{http://miktex.org/}
   \item Editor \LaTeX\ gratuito: \url{http://texstudio.sourceforge.net/}
@@ -434,13 +439,18 @@ Exemplo de Quadro (dados textuais/qualitativos): ver Quadro~\ref{qua:mineracao}.
 \hline
 \textbf{\#} & \textbf{Etapa} & \textbf{Descrição} \\
 \hline
-1 & Seleção & Escolha dos dados relevantes \\ \hline
-2 & Pré-processamento & Limpeza e tratamento dos dados \\ \hline
-3 & Transformação & Preparação para a etapa de mineração \\ \hline
-4 & Mineração & Aplicação de algoritmos de mineração \\ \hline
-5 & Interpretação & Discussão e interpretação dos resultados dos algoritmos \\ \hline
+1 & Seleção & Escolha dos dados relevantes \\ 
+\hline
+2 & Pré-processamento & Limpeza e tratamento dos dados \\ 
+\hline
+3 & Transformação & Preparação para a etapa de mineração \\ 
+\hline
+4 & Mineração & Aplicação de algoritmos de mineração \\ 
+\hline
+5 & Interpretação & Discussão e interpretação dos resultados dos algoritmos \\ 
+\hline
 \end{tabular}
-\fonte{Autor (2026)}
+\fonte{Adaptado de \citeonline{tese2019}.}
 \end{quadro}
 
 \section{Tecnologias Utilizadas}
@@ -503,7 +513,7 @@ Além disso, conforme o Art 9º da Portaria 2664, de 6 de março de 2026 - Polí
 
 \section{Procedimento Experimental}
 
-Detalhar as etapas do experimento e das métricas de avaliação.
+Detalhar as etapas do experimento e as métricas de avaliação.
 
 % -------------------------------------------------------------
 % RESULTADOS
@@ -530,7 +540,7 @@ Sobrepeso & > 25 e < 30 \\
 Obesidade & > 30 \\
 \hline
 \end{tabular}
-\fonte{Autor (2026)}
+\fonte{Elaborado pelo autor (2026).}
 \end{center}
 \end{table}
 

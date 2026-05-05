@@ -2,7 +2,7 @@
 %% Adaptação do Modelo de TCC para o curso de Bacharelado em
 %% Sistemas de Informação da Universidade Federal do Acre
 %% Autor: Manoel Limeira (juniorlimeiras@gmail.com)
-%% Última versão Março/2026
+%% Última versão 04 de Maio de 2026
 %% Arquivo em formato UTF-8
 %% Compilar com pdftex
 %% Precisa do arquivo abntex2-UFAC.sty
@@ -22,8 +22,6 @@
 	brazil,				    % idioma principal do documento
 	]{abntex2}              
 
-
-
 % Pacotes fundamentais
 \usepackage{abntex2-UFAC}        % Personalização para a Universidade Federal do Acre
 \usepackage{lmodern}			% Usa a fonte Latin Modern			
@@ -32,8 +30,37 @@
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{booktabs}           % \toprule, \midrule e \bottomrule para tabelas
+
 % Sistema autor-data com títulos nas referências em negrito
-\usepackage[alf,abnt-emphasize=bf,abnt-etal-list=0,abnt-etal-text=it]{abntex2cite}	
+% --------------------------------------------------------------------------------------
+% BIBLATEX PARA ABNT 2023 (NBR 10520:2023)
+% --------------------------------------------------------------------------------------
+\usepackage[
+    style=abnt,
+    maxcitenames=3,      % Cita até 3 autores; 4 ou mais usa et al.
+    mincitenames=1,
+    uniquelist=false,
+    uniquename=false,
+    backref=true,
+    backend=biber        % Define o motor como Biber
+]{biblatex}
+
+% AJUSTE PARA O CONECTIVO "E" (NORMA 2023)
+% ---
+\DeclareDelimFormat{multinamedelim}{;\space}
+\DeclareDelimFormat{finalnamedelim}{\space e\space}
+
+% Garante que a citação entre parênteses também use "e" e não ";"
+\DeclareDelimFormat[parencite]{multinamedelim}{;\space}
+\DeclareDelimFormat[parencite]{finalnamedelim}{\space e\space}
+
+% Adiciona seu arquivo de referências
+\addbibresource{referencias.bib}
+
+% Comandos de compatibilidade abntex2
+\let\citeonline\textcite
+\let\cite\parencite
+           
 %Títulos em fonte Times
 \usepackage{mathptmx}
 \renewcommand{\ABNTEXchapterfont}{\rmfamily\bfseries}
@@ -67,7 +94,6 @@
     commentstyle=\color{gray},
     stringstyle=\color{orange}
 }
-
 
 % -------------------------------------------------------------
 % CONFIGURAÇÕES DE PACOTES
@@ -116,7 +142,7 @@
 \makeatother
 
 % -------------------------------------------------------------
-% Lista de Quadros
+% Customização da Lista de quadros
 % -------------------------------------------------------------
 \DeclareCaptionType{quadro}[Quadro][Lista de quadros]
 \counterwithin{quadro}{chapter}
@@ -282,7 +308,7 @@ Segundo \cite{NBR6028:2003}, o resumo é elemento obrigat\'orio, constitu\'ido d
 % INTRODUÇÃO
 % -------------------------------------------------------------
 
-\chapter{Introdução}\label{sec:introducao} \thispagestyle{empty}
+\chapter{Introdução}\label{sec:introducao}
 
 A introdução deve apresentar uma visão geral do assunto que será abordado no trabalho, buscando fazer com que o leitor adquira uma compreensão inicial do que será tratado e fornecendo informações que o levem a perceber sua importância. A introdução deve apresentar o contexto geral do problema: a área de estudo, o cenário atual e a relevância do tema. 
 
@@ -336,7 +362,7 @@ O objetivo da pesquisa deve ser diretamente verificável ao final do trabalho. U
 
 Qual é o maior objetivo do trabalho? Descreve o resultado principal esperado da pesquisa.
 
-Exemplos de verbos para utilizar: desenvolver, avaliar, comparar, analisar, validar e investigar.
+Exemplos de verbos para utilizar: desenvolver, treinar, avaliar, comparar, analisar, validar e investigar.
 
 Exemplo de objetivo geral: Desenvolver um modelo de aprendizado de máquina para prever diagnósticos de COVID-19 utilizando dados epidemiológicos do estado do Acre.
 
@@ -350,7 +376,7 @@ Se o objetivo do trabalho é estudar algo, ele será considerado alcançado se o
 
 Se o objetivo do trabalho consiste em apresentar algo, novamente ele é trivial e inadequado. Uma simples apresentação não produz, necessariamente, conhecimento novo. Por exemplo, ``o objetivo deste trabalho é apresentar os operadores da lógica booleana''; tal objetivo pode ser alcançado com um pequeno texto explicando os operadores conhecidos. Contudo, como não traz informação nova, não se configura como um objetivo de pesquisa.
 
-Insira os objetivos específicos no formato de tópicos.
+Inserir os objetivos específicos no formato de tópicos.
 
 \begin{enumerate}
     \item[a)] Coletar e preparar o conjunto de dados.
@@ -365,6 +391,7 @@ Insira os objetivos específicos no formato de tópicos.
 A proposta, o estudo e a apresentação podem ser justificados como objetivos de pesquisa, desde que o objeto da proposta, estudo ou apresentação seja algo original~\cite{wazlawick2009}.
 
 A Justificativa em um projeto de pesquisa, como o próprio nome indica, é o convencimento de que o trabalho de pesquisa é fundamental para ser efetivado. O tema escolhido pelo pesquisador e a Hipótese levantada são de suma importância para a sociedade ou para alguns indivíduos, devendo ser comprovados. A Justificativa exalta a importância do tema a ser estudado ou justifica a necessidade imperiosa de se levar a efeito tal empreendimento.
+
 Por que será feita a pesquisa sobre este assunto? Qual é a importância de se pesquisar este assunto? Tem algum impacto social? Aqui está a importância científica e tecnológica do trabalho.
  
 \section{Estrutura do Trabalho}\label{sec:Organizacao}
@@ -374,7 +401,7 @@ O que há em cada um dos capítulos seguintes: detalhar a estrutura dos capítul
 % -------------------------------------------------------------
 % FUNDAMENTACAO TEORICA
 % -------------------------------------------------------------
-\chapter{Referencial Teórico}\label{sec:RefTeorico}\thispagestyle{empty}
+\chapter{Referencial Teórico}\label{sec:RefTeorico}
 
 Parte teórica da monografia: qual é o assunto que dá embasamento para a monografia? Quais são os principais temas que precisam ser abordados? Divida os temas em subseções. 
 
@@ -384,7 +411,7 @@ Podem ser elaborados diferentes capítulos para a fundamentação teórica, conf
 
 \section{Conceitos Fundamentais}
 
-Geralmente, recomenda-se que a seção de revisão da literatura em artigos científicos seja composta por 5 a 10 páginas, fundamentando-se em autores, preferencialmente de livros. Referências da internet devem ser utilizadas com cautela, não devendo ultrapassar 30\% das obras citadas.
+Geralmente, recomenda-se que a seção de revisão da literatura em artigos científicos seja composta por 5 a 10 páginas, fundamentando-se em autores, preferencialmente de livros. Referências da internet devem ser atuais e utilizadas com cautela, não devendo ultrapassar 30\% das obras citadas.
 
 Exemplo de tópicos:
 
@@ -397,24 +424,24 @@ Exemplo de tópicos:
 
 Exemplo de refer\^encias~\cite{tese2019, confinter2019, confnac2019, site2019}.
 
-Exemplo de Tabela: ver Tabela~\ref{tab:exetab}.
+Exemplo de Quadro (dados textuais/qualitativos): ver Quadro~\ref{qua:mineracao}.
 
-\begin{table}[!htb]
-\begin{center}
-\caption{Distribuição IMC em Adultos}
-\label{tab:exetab}
-\begin{tabular}{c|c}
+\begin{quadro}[htb]
+\centering
+\caption{Etapas do processo de mineração de dados.}
+\label{qua:mineracao}
+\begin{tabular}{|c|c|l|}
 \hline
-\textbf{\textbf{Classificação}} & \textbf{IMC}\\
+\textbf{\#} & \textbf{Etapa} & \textbf{Descrição} \\
 \hline
-Baixo Peso & < 18,5 \\
-Peso Adequado & > 18,5 e < 25 \\
-Sobrepeso & > 25 e < 30 \\
-Obesidade & > 30 \\
-\hline
+1 & Seleção & Escolha dos dados relevantes \\ \hline
+2 & Pré-processamento & Limpeza e tratamento dos dados \\ \hline
+3 & Transformação & Preparação para a etapa de mineração \\ \hline
+4 & Mineração & Aplicação de algoritmos de mineração \\ \hline
+5 & Interpretação & Discussão e interpretação dos resultados dos algoritmos \\ \hline
 \end{tabular}
-\end{center}
-\end{table}
+\fonte{Autor (2026)}
+\end{quadro}
 
 \section{Tecnologias Utilizadas}
 
@@ -438,14 +465,14 @@ Exemplo de código:
 
 \section{Trabalhos Relacionados}\label{sec:TrabRel}
 
-Compare os trabalhos existentes na literatura com o objetivo de demonstrar conhecimento do estado da arte, identificar lacunas de pesquisa e posicionar o trabalho proposto.
+Comparar os trabalhos existentes na literatura com o objetivo de demonstrar conhecimento do estado da arte, identificar lacunas de pesquisa e posicionar o trabalho proposto.
 
 % -------------------------------------------------------------
 % METODOLOGIA
 % -------------------------------------------------------------
-\chapter{Materiais e Métodos}\label{sec:metodos}\thispagestyle{empty}
+\chapter{Materiais e Métodos}\label{sec:metodos}
 
-Descreva como a pesquisa foi conduzida. Como será realizada a monografia? Pesquisa bibliográfica, estudo de caso, levantamento (ver manual sobre metodologia no grupo). Detalhar se há instrumentos de coleta de dados (questionário, formulário, entrevista, observação), quem é a população e a amostra. Como serão tabulados os dados?  
+Descrever como a pesquisa foi conduzida. Como será realizada a monografia? Pesquisa bibliográfica, estudo de caso, levantamento (ver manual sobre metodologia no grupo). Detalhar se há instrumentos de coleta de dados (questionário, formulário, entrevista, observação), quem é a população e a amostra. Como serão tabulados os dados?  
 
 A Metodologia é a explicação minuciosa, detalhada, rigorosa e exata de toda ação desenvolvida no método (caminho) do trabalho de pesquisa. É a explicação do tipo de pesquisa, do instrumento utilizado (questionário, entrevista etc.), do tempo previsto, da equipe de pesquisadores e da divisão do trabalho, das formas de tabulação e tratamento dos dados; enfim, de tudo aquilo que foi utilizado no trabalho de pesquisa. Se envolver o desenvolvimento de sistemas ou de aplicações, deve-se mencionar quais ferramentas serão utilizadas. 
 
@@ -476,44 +503,47 @@ Além disso, conforme o Art 9º da Portaria 2664, de 6 de março de 2026 - Polí
 
 \section{Procedimento Experimental}
 
-Detalhamento das etapas do experimento e das métricas de avaliação.
+Detalhar as etapas do experimento e das métricas de avaliação.
 
 % -------------------------------------------------------------
 % RESULTADOS
 % -------------------------------------------------------------
-\chapter{Resultados e Discussões}\label{sec:resultados}\thispagestyle{empty}
+\chapter{Resultados e Discussões}\label{sec:resultados}
 
 Este capítulo apresenta os resultados obtidos e sua interpretação.
 
 \section{Resultados Experimentais}
 
-\begin{quadro}[htb]
-\centering
-\caption{Etapas do processo de mineração de dados.}
-\label{qua:mineracao}
-\begin{tabular}{|c|c|l|}
+Exemplo de Tabela (dados numéricos/estatísticos): ver Tabela~\ref{tab:exetab}.
+
+\begin{table}[!htb]
+\begin{center}
+\caption{Distribuição IMC em Adultos.}
+\label{tab:exetab}
+\begin{tabular}{c|c}
 \hline
-\textbf{\#} & \textbf{Etapa} & \textbf{Descrição} \\
+\textbf{\textbf{Classificação}} & \textbf{IMC}\\
 \hline
-1 & Seleção & Escolha dos dados relevantes \\ \hline
-2 & Pré-processamento & Limpeza e tratamento dos dados \\ \hline
-3 & Transformação & Preparação para a etapa de mineração \\ \hline
-4 & Mineração & Aplicação de algoritmos de mineração \\ \hline
+Baixo Peso & < 18,5 \\
+Peso Adequado & > 18,5 e < 25 \\
+Sobrepeso & > 25 e < 30 \\
+Obesidade & > 30 \\
+\hline
 \end{tabular}
 \fonte{Autor (2026)}
-\end{quadro}
-
+\end{center}
+\end{table}
 
 \section{Discussão dos Resultados}
 
-Os resultados devem ser comparados com os trabalhos da literatura.
+Os resultados devem ser discutidos e comparados com os trabalhos da literatura.
 
 % -------------------------------------------------------------
 % CONCLUSAO
 % -------------------------------------------------------------
-\chapter{Conclusões}\thispagestyle{empty}
+\chapter{Conclusões}
 
-Retome o objetivo, os resultados e as contribuições.
+Retomar o objetivo, os resultados e as contribuições.
 
 \section{Contribuições}
 
@@ -538,14 +568,12 @@ Sugerir trabalhos futuros.
 \postextual
 
 % Referências bibliográficas
-
-\bibliography{referencias}\thispagestyle{empty}
+\printbibliography[title={REFERÊNCIAS}]
 
 % Caso sejam necessários apêndices ou anexos em seu documento
 % Use os ambientes abaixo
 
 %% Apêndices
-%
 %% Inicia os apêndices
 \begin{apendicesenv}
 %

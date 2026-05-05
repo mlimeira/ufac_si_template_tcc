@@ -1,10 +1,10 @@
 %%==============================================================
 %% Adaptação do Modelo de TCC para o curso de Bacharelado em
 %% Sistemas de Informação da Universidade Federal do Acre
-%% Autor: Manoel Limeira (juniorlimeiras@gmail.com)
-%% Última versão 04 de Maio de 2026
+%% Autor: Manoel Limeira de Lima Júnior (manoel.limeira@ufac.br)
+%% Última versão 05 de Maio de 2026
 %% Arquivo em formato UTF-8
-%% Compilar com pdftex
+%% Compilar com pdftex e biber (biblatex)
 %% Precisa do arquivo abntex2-UFAC.sty
 %%==============================================================
 
@@ -22,7 +22,9 @@
 	brazil,				    % idioma principal do documento
 	]{abntex2}              
 
+% --------------------------------------------------------------------------------------
 % Pacotes fundamentais
+% --------------------------------------------------------------------------------------
 \usepackage{abntex2-UFAC}        % Personalização para a Universidade Federal do Acre
 \usepackage{lmodern}			% Usa a fonte Latin Modern			
 \usepackage[T1]{fontenc}		% Selecao de codigos de fonte de saída
@@ -32,6 +34,23 @@
 \usepackage{booktabs}           % \toprule, \midrule e \bottomrule para tabelas
 \usepackage{csquotes}
 \usepackage{tocloft}
+\usepackage{mathptmx}
+\renewcommand{\ABNTEXchapterfont}{\rmfamily\bfseries} %Títulos em fonte Times
+\usepackage[outdir=./]{epstopdf} %figuras
+\usepackage{epsfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{caption}
+\usepackage{newfloat}
+\usepackage{listings}
+\usepackage{xcolor}
 
 % Sistema autor-data com títulos nas referências em negrito
 % --------------------------------------------------------------------------------------
@@ -48,7 +67,7 @@
     backend=biber        % Define o motor como Biber
 ]{biblatex}
 
-% AJUSTE PARA O CONECTIVO "E" (NORMA 2023)
+% AJUSTE PARA O CONECTIVO "E"
 % ---
 \DeclareDelimFormat{multinamedelim}{;\space}
 \DeclareDelimFormat{finalnamedelim}{\space e\space}
@@ -64,42 +83,50 @@
 \let\citeonline\textcite
 \let\cite\parencite
            
-%Títulos em fonte Times
-\usepackage{mathptmx}
-\renewcommand{\ABNTEXchapterfont}{\rmfamily\bfseries}
-%figuras
-\usepackage[outdir=./]{epstopdf}
-\usepackage{epsfig}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{algorithm}
-\usepackage{algpseudocode}
-\usepackage{listings}
-\usepackage{xcolor}
-\usepackage{url}
-\usepackage{hyperref}
-\usepackage{tikz}
-\usepackage{caption}
-\usepackage{newfloat}
 %
 % -------------------------------------------------------------
 % CONFIGURACAO DE CODIGO FONTE
 % -------------------------------------------------------------
+% Cores estilo VS Code Light (Fundo Claro)
+\definecolor{vscode_light_back}{RGB}{219,219,219}    % Fundo Cinza Claro
+\definecolor{vscode_light_text}{RGB}{0,0,0}          % Texto Preto
+\definecolor{vscode_light_keyword}{RGB}{0,0,255}     % Keywords (Azul vibrante)
+\definecolor{vscode_light_func}{RGB}{121,94,38}      % Funções (Marrom/Ouro)
+\definecolor{vscode_light_string}{RGB}{163,21,21}     % Strings (Vermelho escuro)
+\definecolor{vscode_light_comment}{RGB}{0,128,0}      % Comentários (Verde clássico)
+\definecolor{vscode_light_number}{RGB}{9,134,88}     % Números (Verde água)
+\definecolor{vscode_light_builtin}{RGB}{38,139,210}  % Built-ins (Ciano/Azul)
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}             % Cinza para números de linha
 
-\lstset{
+\lstdefinestyle{codigo}{
+    backgroundcolor=\color{vscode_light_back},   
+    commentstyle=\color{vscode_light_comment}\itshape,
+    keywordstyle=\color{vscode_light_keyword}\bfseries,
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{vscode_light_string},
+    basicstyle=\ttfamily\footnotesize\color{vscode_light_text},
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=t,                    % Legenda sempre no topo (Norma ABNT)
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=7pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=4,                       
     language=Python,
-    basicstyle=\ttfamily\small,
-    numbers=left,
-    numberstyle=\tiny,
-    frame=single,
-    breaklines=true,
-    keywordstyle=\color{blue},
-    commentstyle=\color{gray},
-    stringstyle=\color{orange}
+    frame=single,                    % Moldura simples para delimitar o código
+    rulecolor=\color{black!50},      % Moldura em cinza
+    % Destaque para termos técnicos de Python
+    morekeywords=[2]{self, cls, @classmethod, @property, print, range, len},
+    keywordstyle=[2]\color{vscode_light_builtin},
+    % Tratamento de acentos no código
+    literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ó}{{\'o}}1 {ç}{{\c{c}}}1 {ú}{{\'u}}1 {í}{{\'i}}1 {ê}{{\^e}}1
 }
-
+\lstset{style=codigo}
 % -------------------------------------------------------------
-% CONFIGURAÇÕES DE PACOTES
+% CONFIGURAÇÕES DE PACOTES PARA A UFAC
 % -------------------------------------------------------------
 
 % Informações de dados para CAPA e FOLHA DE ROSTO
@@ -187,13 +214,11 @@
 % ELEMENTOS PRÉ-TEXTUAIS
 % =============================================================
 \pretextual
-
 % Capa
 \imprimircapa
 
 % Folha de rosto
 \imprimirfolhaderosto
-% ---
 
 % Folha de aprovação
 \imprimirfolhadeaprovacao
@@ -206,14 +231,12 @@
    \textit{Dedicat\'oria(s): Elemento opcional, texto em que o autor presta homenagem ou dedica seu trabalho \cite{NBR14724:2011}.}
    \vspace*{\fill}
 \end{dedicatoria}
-% ---
 
 % Agradecimentos
 \begin{agradecimentos}
 %Insira o texto de agradecimentos aqui
 Elemento opcional, texto colocado ap\'os a dedicat\'oria em que o autor faz agradecimentos dirigidos àqueles que contribuíram de maneira relevante à elaboração do trabalho \cite{NBR14724:2011}. 
 \end{agradecimentos}
-% ---
 
 % Epígrafe
 \begin{epigrafe}
@@ -223,7 +246,6 @@ Elemento opcional, texto colocado ap\'os a dedicat\'oria em que o autor faz agra
 		(Qualquer usuário de \LaTeX)}
 	\end{flushright}
 \end{epigrafe}
-
 
 % -------------------------------------------------------------
 % RESUMOS
@@ -279,10 +301,10 @@ Segundo \cite{NBR6028:2003}, o resumo é elemento obrigat\'orio, constitu\'ido d
 % Lista de siglas e abreviaturas (opcional)
 % sintaxe: \item [sigla] Descrição da sigla
 
-\begin{siglas}
-\item[ABNT] Absurdas Normas Técnicas
-\item[UFAC] Universidade Federal do Acre
-\end{siglas}
+% \begin{siglas}
+% \item[ABNT] Absurdas Normas Técnicas
+% \item[UFAC] Universidade Federal do Acre
+% \end{siglas}
 
 % Lista de símbolos (opcional)
 % sintaxe: \item [simbolo] Descrição do símbolo
@@ -303,9 +325,7 @@ Segundo \cite{NBR6028:2003}, o resumo é elemento obrigat\'orio, constitu\'ido d
 % =============================================================
 % ELEMENTOS TEXTUAIS
 % =============================================================
-
 \textual
-
 %Modifique a estrutura dos capítulos e seções de acordo com a necessidade do seu trabalho
 % -------------------------------------------------------------
 % INTRODUÇÃO
@@ -466,12 +486,23 @@ Exemplo de algoritmo:
 \end{algorithm}
 
 Exemplo de código:
-\begin{lstlisting}[caption=Treinamento de modelo]
-    from sklearn.ensemble import RandomForestClassifier
-    
-    model = RandomForestClassifier()
-    model.fit(X_train, y_train)
+
+\begin{figure}[h]
+\centering
+\caption{Código da Classe Forma.}
+\label{fig:codigo}
+\begin{lstlisting}
+class Forma:
+    """Classe base para formas geométricas."""
+    def __init__(self, nome):
+        self.nome = nome
+class Circulo(Forma):
+    def __init__(self, raio):
+        super().__init__("Círculo")
+        self.raio = raio
 \end{lstlisting}
+\fonte{Elaborado pelo autor (2026).} % Fonte obrigatória
+\end{figure}
 
 \section{Trabalhos Relacionados}\label{sec:TrabRel}
 
@@ -600,16 +631,15 @@ Sugerir trabalhos futuros.
 %% ----------------------------------------------------------
 %% Anexos
 %% ----------------------------------------------------------
+%% Inicia os anexos
 \begin{anexosenv}
 %
 %% Imprime uma página indicando o início dos anexos (Documentos externos utilizados)
 \partanexos
 %
 \chapter{Primeiro Anexo}
-%\lipsum[30]
 %
 \chapter{Segundo Anexo}
-%\lipsum[31]
 %
 \end{anexosenv}
 
